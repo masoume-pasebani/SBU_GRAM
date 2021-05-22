@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.login_and_signup_Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="680.0" prefWidth="430.0" style="-fx-background-color: #090626;">
+         <children>
+            <TextField fx:id="username_field" layoutX="124.0" layoutY="289.0" prefHeight="36.0" prefWidth="180.0" promptText="username" />
+            <PasswordField fx:id="password_field" layoutX="124.0" layoutY="376.0" prefHeight="36.0" prefWidth="180.0" promptText="password" />
+            <Button fx:id="login_button" layoutX="168.0" layoutY="455.0" mnemonicParsing="false" onAction="#login" prefHeight="36.0" prefWidth="92.0" text="Login" textFill="#291e97">
+               <font>
+                  <Font name="Sitka Small Bold Italic" size="16.0" />
+               </font>
+            </Button>
+            <Label fx:id="label" layoutX="127.0" layoutY="420.0" prefHeight="19.0" prefWidth="180.0" text="wrong password!" textAlignment="CENTER" textFill="#b21b1b" visible="false" />
+            <ImageView fx:id="logo" fitHeight="186.0" fitWidth="245.0" layoutX="108.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/fara/Desktop/loggo.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="159.0" layoutY="531.0" prefHeight="19.0" prefWidth="112.0" text="Don`t have account?" textAlignment="CENTER" textFill="#205bc2" />
+            <Button fx:id="signup_button" layoutX="180.0" layoutY="565.0" mnemonicParsing="false" onAction="#Signup" prefHeight="25.0" prefWidth="72.0" text="Sign Up" textFill="#052284">
+               <font>
+                  <Font name="Sitka Small Bold Italic" size="13.0" />
+               </font>
+            </Button>
+            <TextField fx:id="password_show" layoutX="124.0" layoutY="376.0" prefHeight="36.0" prefWidth="180.0" visible="false" />
+            <CheckBox layoutX="316.0" layoutY="386.0" mnemonicParsing="false" onAction="#show_pass" text="show" textFill="#2649bd">
+               <font>
+                  <Font name="Sitka Small Italic" size="12.0" />
+               </font>
+            </CheckBox>
+         </children>
+      </Pane>
+   </children>
+</GridPane>

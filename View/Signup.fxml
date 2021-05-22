@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="680.0" prefWidth="430.0" style="-fx-background-color: #090626;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.login_and_signup_Controller">
+   <children>
+      <TextField layoutX="141.0" layoutY="139.0" promptText="Name">
+         <font>
+            <Font name="Arial Narrow" size="14.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="141.0" layoutY="211.0" promptText="Last Name">
+         <font>
+            <Font name="Arial Narrow" size="14.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="140.0" layoutY="287.0" prefHeight="26.0" prefWidth="150.0" promptText="Birth Date">
+         <font>
+            <Font name="Arial Narrow" size="14.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="141.0" layoutY="461.0" promptText="Password">
+         <font>
+            <Font name="Arial Narrow" size="14.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="141.0" layoutY="370.0" promptText="Username">
+         <font>
+            <Font name="Arial Narrow" size="14.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>
