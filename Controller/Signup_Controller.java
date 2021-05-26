@@ -10,9 +10,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.io.IOException;
 
 public class Signup_Controller {
@@ -28,8 +31,6 @@ public class Signup_Controller {
     private Button add_photo;
     @FXML
     private TextField birth_field;
-    @FXML
-    private ImageView profileimage;
     @FXML
     private TextField phonenumber_field;
     @FXML
@@ -209,14 +210,11 @@ public class Signup_Controller {
     }
 
     public void add(ActionEvent actionEvent) {
+        image.setImage(chooseImage());
     }
-//    public Image chooseImage() {
-//        FileChooser fileChooser = new FileChooser();
-//        File file = fileChooser.showOpenDialog(ClientEXE.pStage.getScene().getWindow());
-//        return new Image( file.toURI().toString() );
-//
-//
-//        public void add(ActionEvent actionEvent)  {
-//        profileimage.setImage();
-
+    public Image chooseImage() {
+        FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showOpenDialog( PageLoader.stage.getScene().getWindow() );
+        return new Image( file.toURI().toString() );
+    }
 }
