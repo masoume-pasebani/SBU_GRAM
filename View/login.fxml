@@ -12,22 +12,22 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="430.0" style="-fx-background-color: #090626;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.login_Controller">
    <children>
-      <TextField fx:id="username_field" layoutX="136.0" layoutY="316.0" prefHeight="26.0" prefWidth="163.0" promptText="Username">
+      <TextField fx:id="username_field" layoutX="136.0" layoutY="316.0" prefHeight="26.0" prefWidth="163.0" promptText="Username" style="-fx-background-color: #fce8c6;">
          <font>
             <Font name="Arial Narrow" size="14.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="password_field" layoutX="136.0" layoutY="394.0" prefHeight="26.0" prefWidth="163.0" promptText="Password">
+      <PasswordField fx:id="password_field" layoutX="136.0" layoutY="394.0" prefHeight="26.0" prefWidth="163.0" promptText="Password" style="-fx-background-color: #fce8c6;">
          <font>
             <Font name="Arial Narrow" size="14.0" />
          </font>
       </PasswordField>
-      <Button fx:id="login_button" layoutX="177.0" layoutY="462.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="85.0" text="Login" textFill="#2a1789">
+      <Button fx:id="login_button" layoutX="177.0" layoutY="462.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #9db7ff;" text="Login" textFill="#2a1789">
          <font>
             <Font name="Sitka Small Bold Italic" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="signup_button" layoutX="186.0" layoutY="552.0" mnemonicParsing="false" onAction="#signup" prefHeight="26.0" prefWidth="68.0" text="Sign Up" textFill="#2a1789">
+      <Button fx:id="signup_button" layoutX="186.0" layoutY="552.0" mnemonicParsing="false" onAction="#signup" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #9db7ff;" text="Sign Up" textFill="#2a1789">
          <font>
             <Font name="Sitka Small Bold Italic" size="12.0" />
          </font>
@@ -42,7 +42,7 @@
             <Font name="Sitka Small" size="11.0" />
          </font>
       </Label>
-      <TextField fx:id="show_password" layoutX="136.0" layoutY="394.0" prefHeight="26.0" prefWidth="163.0" visible="false" />
+      <TextField fx:id="show_password" layoutX="136.0" layoutY="394.0" prefHeight="26.0" prefWidth="163.0" style="-fx-background-color: #fce8c6;" visible="false" />
       <CheckBox layoutX="328.0" layoutY="399.0" mnemonicParsing="false" onAction="#show_pass" text="show" textFill="#2b36ff">
          <font>
             <Font name="Sitka Small Italic" size="12.0" />

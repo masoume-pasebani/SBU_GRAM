@@ -41,42 +41,60 @@ public class login_Controller {
             @Override
             public void run() {
                 String username = username_field.getText();
-                if (username.isEmpty()) {
+                if (username.isEmpty() && password_field.getText().isEmpty()) {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            label_for_username.setText("No username provided.");
+                            label_for_username.setText("No username provided!");
                             label_for_username.setVisible(true);
+                            label_for_pass.setText("No password provided!");
+                            label_for_pass.setVisible(true);
                         }
                     });
                     return;
                 }
-                if (password_field.getText().isEmpty()) {
+                if (!username.isEmpty() && Validation.isAlphaNumeric(username_field.getText()) && password_field.getText().isEmpty()) {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
+                            label_for_username.setVisible(false);
                             label_for_pass.setText("No password provided.");
                             label_for_pass.setVisible(true);
                         }
                     });
                     return;
                 }
-                if (!Validation.isAlphaNumeric(username_field.getText())) {
+                if (!Validation.isAlphaNumeric(username_field.getText()) && password_field.getText().isEmpty()) {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            label_for_username.setText("Invalid username.");
+                            label_for_username.setText("Invalid username!");
                             label_for_username.setVisible(true);
+                            label_for_pass.setText("No password provided!");
+                            label_for_pass.setVisible(true);
                         }
                     });
                     return;
                 }
-                if (!Validation.isAlphaNumeric(password_field.getText()) || password_field.getText().length() < 8) {
+                if (!Validation.isAlphaNumeric(username_field.getText()) && !Validation.isAlphaNumeric(password_field.getText()) || password_field.getText().length() < 8) {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            label_for_pass.setText("Invalid password.");
+                            label_for_username.setText("Invalid username!");
+                            label_for_username.setVisible(true);
+                            label_for_pass.setText("Invalid password!");
                             label_for_pass.setVisible(true);
+                        }
+                    });
+                    return;
+                }
+                if(!username.isEmpty() && (Validation.isAlphaNumeric(password_field.getText())||!Validation.isAlphaNumeric(password_field.getText()))){
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            label_for_username.setText("No username provided!");
+                            label_for_username.setVisible(true);
+                            label_for_pass.setVisible(false);
                         }
                     });
                     return;
