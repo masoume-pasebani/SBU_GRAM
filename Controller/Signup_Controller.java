@@ -189,8 +189,6 @@ public class Signup_Controller {
                     return;
                 }
 
-
-
 //                try {
 //                    DB.oos.writeObject(new SignUpCommand(username, password));
 //                } catch (Exception e) {
