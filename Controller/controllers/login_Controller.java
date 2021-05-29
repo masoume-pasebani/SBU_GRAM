@@ -1,4 +1,4 @@
-package Controller;
+package Controller.controllers;
 
 
 import Help.Validation;
@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class login_Controller {
+public class login_Controller{
 
 
     @FXML
