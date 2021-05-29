@@ -1,4 +1,4 @@
-package Controller;
+package Controller.controllers;
 
 import Model.PageLoader;
 import javafx.event.ActionEvent;
@@ -19,8 +19,8 @@ public class Mainpage_Controller {
     @FXML
     private ListView list_of_posts;
 
-    public void addpost(ActionEvent actionEvent) throws IOException {
+
+    public void aad_post(ActionEvent actionEvent) throws IOException {
         new PageLoader().load("postitem");
     }
-
 }
