@@ -1,4 +1,4 @@
-package Controller;
+package Controller.controllers;
 
 import Help.Validation;
 import Model.PageLoader;
@@ -210,7 +210,7 @@ public class Signup_Controller {
     public void add(ActionEvent actionEvent) {
         image.setImage(chooseImage());
     }
-    public Image chooseImage() {
+    public static Image chooseImage() {
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog( PageLoader.stage.getScene().getWindow() );
         return new Image( file.toURI().toString() );
