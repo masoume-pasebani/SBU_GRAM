@@ -1,15 +1,14 @@
-package Controller;
+package Controller.controllers;
 
-import javax.swing.text.html.ImageView;
+import java.io.Serializable;
 
-public class Profile {
+public class Profile implements Serializable {
     private final String username;
     private String password;
     private String name;
     private String lastname;
     private String birthYear;
     private String phoneNumber;
-    private ImageView profileimage;
 
     public Profile(String username) {
         this.username = username;
@@ -57,10 +56,7 @@ public class Profile {
         return phoneNumber;
     }
 
-    public void setProfileimage(ImageView profileimage){
-        this.profileimage=profileimage;
-    }
-    public Profile check(String username,String password){
+    public Profile check(String username, String password){
         if(this.username.equals(username) && this.password.equals(password)) return this;
         return null;
     }
