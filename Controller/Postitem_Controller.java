@@ -1,8 +1,9 @@
-package Controller.controllers;
+package Controller;
 
 import Model.PageLoader;
 import Model.Post;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -34,6 +35,7 @@ public class Postitem_Controller {
         this.post = post;
     }
 
+
     public void like(MouseEvent mouseEvent) {
         if(mouseEvent.getClickCount()%2==0){
             like_pic.setVisible(true);
@@ -45,14 +47,11 @@ public class Postitem_Controller {
     public void repost(MouseEvent mouseEvent) {
 
     }
-    public AnchorPane set(){
+
+
+    public AnchorPane init() {
         user_label.setText(post.getWritername());
         title_label.setText(post.getTitle());
         return root;
     }
-    public void setProfileimage(){
-        profile.setImage(Signup_Controller.chooseImage());
-    }
-
-
 }

@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="122.0" prefWidth="430.0" style="-fx-background-color: #4a5974;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.controllers.Postitem_Controller">
+<AnchorPane prefHeight="122.0" prefWidth="430.0" style="-fx-background-color: #4a5974;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Postitem_Controller">
    <children>
       <ImageView fx:id="profile" fitHeight="64.0" fitWidth="99.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="user_label" layoutX="28.0" layoutY="87.0" prefHeight="18.0" prefWidth="76.0" text="username" textFill="#cec5ff">
          <font>
             <Font name="Sitka Small Bold Italic" size="14.0" />
          </font></Label>
-      <Label fx:id="title_label" layoutX="174.0" layoutY="29.0" prefHeight="18.0" prefWidth="82.0" text="post title" textAlignment="CENTER" textFill="#cec5ff">
+      <Label fx:id="title_label" layoutX="180.0" layoutY="29.0" prefHeight="18.0" prefWidth="82.0" text="post title" textAlignment="CENTER" textFill="#cec5ff">
          <font>
             <Font name="Sitka Small Bold Italic" size="15.0" />
          </font></Label>
