@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.7951289398280802" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="700.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.controllers.Mainpage_Controller">
+<SplitPane dividerPositions="0.7951289398280802" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="700.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Mainpage_Controller">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="429.0" style="-fx-background-color: #090626;">
          <children>
@@ -20,14 +20,14 @@
                </font></TextField>
             <MenuButton fx:id="menu_field" layoutX="253.0" layoutY="51.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" style="-fx-background-color: #9db7ff;" text="Post Privacy" textFill="#161f9c">
               <items>
-                <MenuItem mnemonicParsing="false" text="PUBLIC" />
-                <MenuItem mnemonicParsing="false" text="PRIVATE" />
+                <MenuItem mnemonicParsing="false" onAction="#publicpost" text="PUBLIC" />
+                <MenuItem mnemonicParsing="false" onAction="#privatepost" text="PRIVATE" />
               </items>
                <font>
                   <Font name="Sitka Small Bold Italic" size="12.0" />
                </font>
             </MenuButton>
-            <Button fx:id="publish_btn" layoutX="93.0" layoutY="307.0" mnemonicParsing="false" onAction="#aad_post" prefHeight="34.0" prefWidth="82.0" style="-fx-background-color: #9db7ff;" text="Publish" textFill="#161f9c">
+            <Button fx:id="publish_btn" layoutX="93.0" layoutY="307.0" mnemonicParsing="false" onAction="#add_post" prefHeight="34.0" prefWidth="82.0" style="-fx-background-color: #9db7ff;" text="Publish" textFill="#161f9c">
                <font>
                   <Font name="Sitka Small Bold Italic" size="14.0" />
                </font>
@@ -37,12 +37,12 @@
                   <Font name="Arial Narrow Italic" size="14.0" />
                </font>
             </TextArea>
-            <Button layoutX="243.0" layoutY="307.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" style="-fx-background-color: #9db7ff;" text="Clear" textFill="#161f9c">
+            <Button fx:id="clear" layoutX="243.0" layoutY="307.0" mnemonicParsing="false" onAction="#clear" prefHeight="34.0" prefWidth="82.0" style="-fx-background-color: #9db7ff;" text="Clear" textFill="#161f9c">
                <font>
                   <Font name="Sitka Small Bold Italic" size="14.0" />
                </font>
             </Button>
          </children></AnchorPane>
-      <ListView fx:id="list_of_posts" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="159.0" prefWidth="429.0" style="-fx-background-color: #fce8c6;" />
+      <ListView fx:id="list_of_posts" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#show_post" prefHeight="159.0" prefWidth="429.0" style="-fx-background-color: #fce8c6;" />
   </items>
 </SplitPane>
