@@ -1,7 +1,8 @@
-package Controller.controllers;
+package Controller;
 
 import Help.Validation;
 import Model.PageLoader;
+import Model.Profile;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
