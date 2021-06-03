@@ -1,12 +1,12 @@
-package Controller.controllers;
+package Model;
 
 import java.io.Serializable;
 
 public class Profile implements Serializable {
     private final String username;
     private String password;
-    private String name;
-    private String lastname;
+    private static String name;
+    private static String lastname;
     private String birthYear;
     private String phoneNumber;
 
@@ -28,7 +28,7 @@ public class Profile implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
@@ -36,7 +36,7 @@ public class Profile implements Serializable {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
-    public String getLastname() {
+    public static String getLastname() {
         return lastname;
     }
 
