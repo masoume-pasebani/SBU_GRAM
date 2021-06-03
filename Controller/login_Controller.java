@@ -1,4 +1,4 @@
-package Controller.controllers;
+package Controller;
 
 
 import Help.Validation;
@@ -22,10 +22,6 @@ public class login_Controller{
     private Label label_for_username;
     @FXML
     private PasswordField password_field;
-    @FXML
-    private Button login_button;
-    @FXML
-    private Button signup_button;
     @FXML
     private TextField show_password;
     @FXML
@@ -117,12 +113,10 @@ public class login_Controller{
         return runnable;
     }
 
-
     public void login(ActionEvent actionEvent) throws IOException {
         this.loginfunc();
 
     }
-
     public void signup(ActionEvent actionEvent) throws IOException {
         new PageLoader().load("signup");
     }
