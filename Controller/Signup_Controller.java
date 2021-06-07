@@ -1,8 +1,8 @@
 package Controller;
 
 import Common.Help.Validation;
+import Model.Account;
 import Model.PageLoader;
-import Model.Profile;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -105,13 +105,13 @@ Signup_Controller {
     public void login(ActionEvent actionEvent) throws IOException {
         new PageLoader().load("login");
     }
-    private Profile profile_informations() {
-        Profile user = new Profile(username_field.getText());
+    private Account profile_informations() {
+        Account user = new Account(username_field.getText(),pass_field.getText(),name_field.getText(),lastname_field.getText(),phonenumber_field.getText(),birth_field.getText());
         user.setPassword( pass_field.getText() );
         user.setName(name_field.getText() );
         user.setLastname(lastname_field.getText());
-        user.setBirthYear(birth_field.getText());
-        user.setPhoneNumber(null);
+        user.setBirth(birth_field.getText());
+        user.setPhonenumber(null);
         //returnValue.setImage( profilePicture.getImage() );  TODO
         return user;
     }
