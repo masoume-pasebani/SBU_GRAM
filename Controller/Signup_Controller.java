@@ -1,6 +1,6 @@
 package Controller;
 
-import Help.Validation;
+import Common.Help.Validation;
 import Model.PageLoader;
 import Model.Profile;
 import javafx.animation.TranslateTransition;
@@ -19,7 +19,8 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.IOException;
 
-public class Signup_Controller {
+public class
+Signup_Controller {
     @FXML
     private Label star1;
     @FXML
