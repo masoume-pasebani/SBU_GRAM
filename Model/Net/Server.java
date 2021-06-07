@@ -1,4 +1,6 @@
-package Model;
+package Model.Net;
+
+import Model.Account;
 
 import java.io.IOException;
 import java.io.Serial;
