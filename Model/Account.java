@@ -86,17 +86,17 @@ public class Account implements Serializable {
         return this.password.equals(Password.generateHash(passwordHash));
     }
 
-    public int incrementFollowers(){
-        return followers++;
+    public void incrementFollowers(){
+        this.followers++;
     }
-    public int incrementFollowing(){
-        return following++;
+    public void incrementFollowing(){
+        this.following++;
     }
-    public int decrementFollowers(){
-        return followers--;
+    public void decrementFollowers(){
+        this.followers--;
     }
-    public int decrementFollowing(){
-        return following--;
+    public void decrementFollowing(){
+        this.following--;
     }
 
     public int getFollowers() {
