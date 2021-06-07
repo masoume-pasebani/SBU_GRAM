@@ -1,4 +1,4 @@
-package Help;
+package Common.Help;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
