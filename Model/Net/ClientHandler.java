@@ -1,10 +1,12 @@
-package Model;
+package Model.Net;
+
+import Model.Account;
+import Model.Net.commands.Command;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.List;
 
 public class ClientHandler {
     private Server server;
