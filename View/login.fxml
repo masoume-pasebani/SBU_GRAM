@@ -12,51 +12,61 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="430.0" style="-fx-background-color: #090626;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.login_Controller">
    <children>
-      <TextField fx:id="username_field" layoutX="136.0" layoutY="316.0" prefHeight="26.0" prefWidth="163.0" promptText="Username" style="-fx-background-color: #fce8c6;">
+      <TextField fx:id="username_field" layoutX="136.0" layoutY="286.0" prefHeight="26.0" prefWidth="163.0" promptText="Username" style="-fx-background-color: #fce8c6;">
          <font>
             <Font name="Arial Narrow" size="14.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="password_field" layoutX="136.0" layoutY="394.0" prefHeight="26.0" prefWidth="163.0" promptText="Password" style="-fx-background-color: #fce8c6;">
+      <PasswordField fx:id="password_field" layoutX="136.0" layoutY="358.0" prefHeight="26.0" prefWidth="163.0" promptText="Password" style="-fx-background-color: #fce8c6;">
          <font>
             <Font name="Arial Narrow" size="14.0" />
          </font>
       </PasswordField>
-      <Button fx:id="login_button" layoutX="177.0" layoutY="462.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #9db7ff;" text="Login" textFill="#2a1789">
+      <Button fx:id="login_button" layoutX="175.0" layoutY="429.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #9db7ff;" text="Login" textFill="#2a1789">
          <font>
             <Font name="Sitka Small Bold Italic" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="signup_button" layoutX="186.0" layoutY="552.0" mnemonicParsing="false" onAction="#signup" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #9db7ff;" text="Sign Up" textFill="#2a1789">
+      <Button fx:id="signup_button" layoutX="184.0" layoutY="551.0" mnemonicParsing="false" onAction="#signup" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #9db7ff;" text="Sign Up" textFill="#2a1789">
          <font>
             <Font name="Sitka Small Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="label_for_username" layoutX="136.0" layoutY="342.0" prefHeight="17.0" prefWidth="149.0" textFill="#e42323">
+      <Label fx:id="label_for_username" layoutX="136.0" layoutY="312.0" prefHeight="17.0" prefWidth="149.0" textFill="#e42323">
          <font>
             <Font name="Sitka Small" size="11.0" />
          </font>
       </Label>
-      <Label fx:id="label_for_pass" layoutX="136.0" layoutY="420.0" prefHeight="17.0" prefWidth="149.0" textFill="#e42323">
+      <Label fx:id="label_for_pass" layoutX="136.0" layoutY="386.0" prefHeight="17.0" prefWidth="149.0" textFill="#e42323">
          <font>
             <Font name="Sitka Small" size="11.0" />
          </font>
       </Label>
       <TextField fx:id="show_password" layoutX="136.0" layoutY="394.0" prefHeight="26.0" prefWidth="163.0" style="-fx-background-color: #fce8c6;" visible="false" />
-      <CheckBox layoutX="328.0" layoutY="399.0" mnemonicParsing="false" onAction="#show_pass" text="show" textFill="#2b36ff">
+      <CheckBox layoutX="319.0" layoutY="363.0" mnemonicParsing="false" onAction="#show_pass" text="show" textFill="#2b36ff">
          <font>
             <Font name="Sitka Small Italic" size="12.0" />
          </font>
       </CheckBox>
-      <Label layoutX="160.0" layoutY="525.0" prefHeight="17.0" prefWidth="120.0" text="Don't have account?" textFill="#2934d5">
+      <Label layoutX="158.0" layoutY="526.0" prefHeight="17.0" prefWidth="120.0" text="Don't have account?" textFill="#2934d5">
          <font>
             <Font name="Sitka Small" size="11.0" />
          </font>
       </Label>
-      <ImageView fitHeight="185.0" fitWidth="209.0" layoutX="110.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="185.0" fitWidth="209.0" layoutX="113.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:/C:/Users/fara/Desktop/loggo.jpg" />
          </image>
       </ImageView>
+      <Label layoutX="165.0" layoutY="479.0" prefHeight="17.0" prefWidth="105.0" text="Forgot password?" textFill="#2934d5">
+         <font>
+            <Font name="Sitka Small" size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="pass_recovery" layoutX="175.0" layoutY="496.0" onMouseClicked="#recovery" prefHeight="17.0" prefWidth="85.0" text="Password recovery" textFill="#7c83e5">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
