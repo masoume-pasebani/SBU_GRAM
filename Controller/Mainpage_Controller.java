@@ -1,8 +1,8 @@
 package Controller;
 
+import Model.Account;
 import Model.Post;
 import Model.Privacy;
-import Model.Profile;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,7 +47,7 @@ public class Mainpage_Controller {
     public void add_post(ActionEvent actionEvent) throws IOException {
         post.setTitle(title_field.getText());
         post.setDesc(desc_field.getText());
-        post.setWritername(Profile.getName()+Profile.getLastname());
+        //post.setWritername(Account.getName()+Account.getLastname());
 
         posts.add(post);
 
