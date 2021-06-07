@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="430.0" style="-fx-background-color: #090626;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Password_recovery_Controller">
+   <children>
+      <TextField layoutX="135.0" layoutY="181.0" prefHeight="26.0" prefWidth="160.0" promptText="Phone Number">
+         <font>
+            <Font name="Arial Narrow" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="135.0" layoutY="138.0" prefHeight="17.0" prefWidth="160.0" text="Enter your phone number" textFill="#2934d5">
+         <font>
+            <Font name="Sitka Small Italic" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="51.0" fitWidth="34.0" layoutX="35.0" layoutY="42.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/left_32px.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

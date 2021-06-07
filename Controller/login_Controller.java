@@ -6,9 +6,11 @@ import Model.PageLoader;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
@@ -120,6 +122,7 @@ public class login_Controller{
         new PageLoader().load("signup");
     }
 
+
     public void show_pass(ActionEvent actionEvent) {
 
         if (!show_password.isVisible()) {
@@ -129,6 +132,11 @@ public class login_Controller{
             show_password.setVisible(false);
             show_password.setText(show_password.getText());
         }
+    }
+
+
+    public void recovery(MouseEvent mouseEvent) throws IOException {
+        new PageLoader().load("pass_recovery");
     }
 }
 
