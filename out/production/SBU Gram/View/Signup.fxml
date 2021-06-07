@@ -77,7 +77,7 @@
       </Button>
       <ImageView fx:id="image" fitHeight="93.0" fitWidth="99.0" layoutX="-105.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/C:/Users/fara/Desktop/99.png" />
+            <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/default_user.png" />
          </image>
          <cursor>
             <Cursor fx:constant="SW_RESIZE" />
