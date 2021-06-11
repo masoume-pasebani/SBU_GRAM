@@ -27,44 +27,44 @@
             <Font name="Arial Narrow" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="username_field" layoutX="-161.0" layoutY="397.0" promptText="Username" style="-fx-background-color: #fce8c6;">
+      <TextField fx:id="username_field" layoutX="-161.0" layoutY="395.0" promptText="Username" style="-fx-background-color: #fce8c6;">
          <font>
             <Font name="Arial Narrow" size="14.0" />
          </font>
       </TextField>
       <TextField layoutX="141.0" layoutY="446.0" visible="false" />
-      <PasswordField fx:id="pass_field" layoutX="436.0" layoutY="458.0" promptText="Password" style="-fx-background-color: #fce8c6;">
+      <PasswordField fx:id="pass_field" layoutX="436.0" layoutY="456.0" promptText="Password" style="-fx-background-color: #fce8c6;">
          <font>
             <Font name="Arial Narrow" size="14.0" />
          </font>
       </PasswordField>
-      <Button fx:id="signup_btn" layoutX="-69.0" layoutY="518.0" mnemonicParsing="false" onAction="#signup" prefHeight="33.0" prefWidth="69.0" style="-fx-background-color: #9db7ff;" text="Sign Up" textFill="#161f9c">
+      <Button fx:id="signup_btn" layoutX="454.0" layoutY="565.0" mnemonicParsing="false" onAction="#signup" prefHeight="33.0" prefWidth="69.0" style="-fx-background-color: #9db7ff;" text="Sign Up" textFill="#161f9c">
          <font>
             <Font name="Sitka Small Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="login_btn" layoutX="-69.0" layoutY="598.0" mnemonicParsing="false" onAction="#login" prefHeight="33.0" prefWidth="69.0" style="-fx-background-color: #9db7ff;" text="Login" textFill="#161f9c">
+      <Button fx:id="login_btn" layoutX="454.0" layoutY="616.0" mnemonicParsing="false" onAction="#login" prefHeight="33.0" prefWidth="69.0" style="-fx-background-color: #9db7ff;" text="Login" textFill="#161f9c">
          <font>
             <Font name="Sitka Small Bold Italic" size="14.0" />
          </font>
       </Button>
-      <Label fx:id="question" layoutX="430.0" layoutY="566.0" prefHeight="17.0" prefWidth="148.0" text="Already have an account?" textFill="#3745df">
+      <Label fx:id="question" layoutX="-161.0" layoutY="601.0" prefHeight="17.0" prefWidth="148.0" text="Already have an account?" textFill="#3745df">
          <font>
             <Font name="Sitka Small" size="11.0" />
          </font>
       </Label>
-      <Label fx:id="star1" layoutX="-38.0" layoutY="382.0" text="*" textFill="#e42525">
+      <Label fx:id="star1" layoutX="-38.0" layoutY="380.0" text="*" textFill="#e42525">
          <font>
             <Font name="Sitka Small Bold" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="star2" layoutX="454.0" layoutY="446.0" text="*" textFill="#e42525">
+      <Label fx:id="star2" layoutX="454.0" layoutY="444.0" text="*" textFill="#e42525">
          <font>
             <Font name="Sitka Small Bold" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="user_label" layoutX="141.0" layoutY="423.0" prefHeight="17.0" prefWidth="148.0" textFill="#da2121" />
-      <Label fx:id="pass_label" layoutX="141.0" layoutY="485.0" prefHeight="17.0" prefWidth="148.0" textFill="#da2121" visible="false" />
+      <Label fx:id="user_label" layoutX="141.0" layoutY="421.0" prefHeight="17.0" prefWidth="148.0" textFill="#da2121" visible="false" />
+      <Label fx:id="pass_label" layoutX="141.0" layoutY="483.0" prefHeight="17.0" prefWidth="148.0" textFill="#da2121" />
       <TextField fx:id="phonenumber_field" layoutX="-149.0" layoutY="278.0" promptText="Phone Number" style="-fx-background-color: #fce8c6;">
          <font>
             <Font name="Arial Narrow" size="14.0" />
@@ -83,5 +83,16 @@
             <Cursor fx:constant="SW_RESIZE" />
          </cursor>
       </ImageView>
+      <PasswordField fx:id="confirm" layoutX="-161.0" layoutY="512.0" promptText="Confirm Password" style="-fx-background-color: #fce8c6;">
+         <font>
+            <Font name="Arial Narrow" size="14.0" />
+         </font>
+      </PasswordField>
+      <Label fx:id="star3" layoutX="-58.0" layoutY="499.0" text="*" textFill="#e42525">
+         <font>
+            <Font name="Sitka Small Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="confirm_label" layoutX="146.0" layoutY="538.0" prefHeight="17.0" prefWidth="149.0" textFill="#da2121" />
    </children>
 </Pane>
