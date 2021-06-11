@@ -21,6 +21,13 @@ import java.io.IOException;
 
 public class
 Signup_Controller {
+
+    @FXML
+    private Label confirm_label;
+    @FXML
+    private Label star3;
+    @FXML
+    private PasswordField confirm;
     @FXML
     private Label star1;
     @FXML
@@ -58,13 +65,13 @@ Signup_Controller {
         transition.setToX(-256);
         transition.playFromStart();
         TranslateTransition transition1=new TranslateTransition(Duration.millis(1000),signup_btn);
-        transition1.setToX(249);
+        transition1.setToX(-273);
         transition1.playFromStart();
         TranslateTransition transition2=new TranslateTransition(Duration.millis(1000),question);
-        transition2.setToX(-289);
+        transition2.setToX(302);
         transition2.playFromStart();
         TranslateTransition transition3=new TranslateTransition(Duration.millis(1000),login_btn);
-        transition3.setToX(249);
+        transition3.setToX(-273);
         transition3.playFromStart();
         TranslateTransition transition4=new TranslateTransition(Duration.millis(1000),image);
         transition4.setToX(272);
@@ -93,6 +100,12 @@ Signup_Controller {
         TranslateTransition transition12=new TranslateTransition(Duration.millis(1000),star2);
         transition12.setToX(-313);
         transition12.playFromStart();
+        TranslateTransition transition13=new TranslateTransition(Duration.millis(1000),confirm);
+        transition13.setToX(301);
+        transition13.playFromStart();
+        TranslateTransition transition14=new TranslateTransition(Duration.millis(1000),star3);
+        transition14.setToX(198);
+        transition14.playFromStart();
 
 
     }
@@ -126,7 +139,7 @@ Signup_Controller {
             public void run() {
                 String username = username_field.getText();
                 String password = pass_field.getText();
-                if (username.isEmpty() && pass_field.getText().isEmpty()) {
+                if (username.isEmpty() && pass_field.getText().isEmpty() && confirm_label.getText().isEmpty()) {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
@@ -134,6 +147,8 @@ Signup_Controller {
                             user_label.setVisible(true);
                             pass_label.setText("No password provided!");
                             pass_label.setVisible(true);
+                            confirm_label.setText("No confirmation!");
+                            confirm_label.setVisible(true);
                         }
                     });
                     return;
@@ -172,7 +187,25 @@ Signup_Controller {
                     });
                     return;
                 }
-                if(Validation.isAlphaNumeric(username_field.getText()) && Validation.isAlphaNumeric(pass_field.getText()) && pass_field.getText().length()>=8) {
+                if(confirm.getText().isEmpty()){
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            pass_label.setText("No confirm password.");
+                            pass_label.setVisible(true);
+                        }
+                    });
+                }
+                if(!confirm.getText().equals(pass_field.getText())){
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            pass_label.setText("Passwords are not equal.");
+                            pass_label.setVisible(true);
+                        }
+                    });
+                }
+                if(Validation.isAlphaNumeric(username_field.getText()) && Validation.isAlphaNumeric(pass_field.getText()) && pass_field.getText().length()>=8 && confirm.getText().equals(pass_field.getText())) {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
@@ -190,6 +223,7 @@ Signup_Controller {
                     });
                     return;
                 }
+
 
 //                try {
 //                    DB.oos.writeObject(new SignUpCommand(username, password));

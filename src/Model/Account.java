@@ -1,6 +1,9 @@
 package Model;
 
 import Common.Help.Password;
+import Model.Exeptions.PasswordsDoNotMatchException;
+import Model.Net.ClientInputHandler;
+import Model.Net.ClientOutputHandler;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -24,7 +27,8 @@ public class Account implements Serializable {
     private ArrayList<Account> followers_list=new ArrayList<>();
     private ArrayList<Account> following_list=new ArrayList<>();
     private ArrayList<Account> blockedAccounts = new ArrayList<>();
-
+    private ClientOutputHandler clientOutputHandler;
+    private ClientInputHandler clientInputHandler;
     public Account(String username, String password,String name,String lastname,String phonenumber,String birth) {
         this.username = username;
         this.password = password;
@@ -106,7 +110,37 @@ public class Account implements Serializable {
     public int getFollowing() {
         return following;
     }
+    public void changePassword(String currentPassword,String newPassword) throws PasswordsDoNotMatchException {
+        if (!checkPassword(currentPassword))
+            throw new PasswordsDoNotMatchException();
 
+        this.password = Password.generateHash(newPassword);
+    }
+    public ClientOutputHandler getClientOutputHandler() {
+        return clientOutputHandler;
+    }
+
+    public void setClientOutputHandler(ClientOutputHandler clientOutputHandler) {
+        this.clientOutputHandler = clientOutputHandler;
+    }
+
+    public ClientInputHandler getClientInputHandler() {
+        return clientInputHandler;
+    }
+
+    public void setClientInputHandler(ClientInputHandler clientInputHandler) {
+        this.clientInputHandler = clientInputHandler;
+    }
+    public void userLoggedOut(){
+        clientInputHandler = null;
+        clientOutputHandler = null;
+
+    }
+    public class PasswordNotLongEnoughException extends Exception {
+    }
+
+    public class PasswordShouldntContainNonDigitsOrLatinLettersException extends Throwable {
+    }
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Account)) {
@@ -129,6 +163,8 @@ public class Account implements Serializable {
         Objects.requireNonNull(account);
         return blockedAccounts.contains(account);
     }
+
+
 
 }
 
