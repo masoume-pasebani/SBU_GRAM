@@ -18,6 +18,7 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 public class
 Signup_Controller {
@@ -119,13 +120,13 @@ Signup_Controller {
         new PageLoader().load("login");
     }
     private Account profile_informations() {
-        Account user = new Account(username_field.getText(),pass_field.getText(),name_field.getText(),lastname_field.getText(),phonenumber_field.getText(),birth_field.getText());
+        Account user = new Account(username_field.getText(),pass_field.getText(),name_field.getText(),lastname_field.getText(),phonenumber_field.getText(),birth_field.getText(),image.getImage().getUrl().getBytes(StandardCharsets.UTF_8));
         user.setPassword( pass_field.getText() );
         user.setName(name_field.getText() );
         user.setLastname(lastname_field.getText());
         user.setBirth(birth_field.getText());
         user.setPhonenumber(null);
-        //returnValue.setImage( profilePicture.getImage() );  TODO
+        user.setImage(image.getImage().getUrl().getBytes(StandardCharsets.UTF_8));
         return user;
     }
 
@@ -139,6 +140,7 @@ Signup_Controller {
             public void run() {
                 String username = username_field.getText();
                 String password = pass_field.getText();
+                String confirm_str= confirm.getText();
                 if (username.isEmpty() && pass_field.getText().isEmpty() && confirm_label.getText().isEmpty()) {
                     Platform.runLater(new Runnable() {
                         @Override
@@ -153,7 +155,7 @@ Signup_Controller {
                     });
                     return;
                 }
-                if (!username.isEmpty() && !Validation.isAlphaNumeric(username_field.getText()) && pass_field.getText().isEmpty()) {
+                if (!username.isEmpty() && !Validation.isAlphaNumeric(username_field.getText()) && pass_field.getText().isEmpty() && confirm_label.getText().isEmpty()) {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
@@ -161,17 +163,21 @@ Signup_Controller {
                             user_label.setVisible(true);
                             pass_label.setText("No password provided!");
                             pass_label.setVisible(true);
+                            confirm_label.setText("No confirmation!");
+                            confirm_label.setVisible(true);
                         }
                     });
                     return;
                 }
-                if (!username.isEmpty() && Validation.isAlphaNumeric(username_field.getText()) && pass_field.getText().isEmpty()) {
+                if (!username.isEmpty() && Validation.isAlphaNumeric(username_field.getText()) && pass_field.getText().isEmpty() && confirm_label.getText().isEmpty()) {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
                             user_label.setVisible(false);
                             pass_label.setText("No password provided!");
                             pass_label.setVisible(true);
+                            confirm_label.setText("No confirmation!");
+                            confirm_label.setVisible(true);
                         }
                     });
                     return;
@@ -183,25 +189,20 @@ Signup_Controller {
                             user_label.setVisible(false);
                             pass_label.setText("Invalid password!");
                             pass_label.setVisible(true);
+                            confirm_label.setVisible(false);
                         }
                     });
                     return;
                 }
-                if(confirm.getText().isEmpty()){
+
+                if(Validation.isAlphaNumeric(username_field.getText()) && Validation.isAlphaNumeric(pass_field.getText()) && pass_field.getText().length()>=8 && !confirm.getText().equals(pass_field.getText())){
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            pass_label.setText("No confirm password.");
-                            pass_label.setVisible(true);
-                        }
-                    });
-                }
-                if(!confirm.getText().equals(pass_field.getText())){
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            pass_label.setText("Passwords are not equal.");
-                            pass_label.setVisible(true);
+                            user_label.setVisible(false);
+                            pass_label.setVisible(false);
+                            confirm_label.setText("Passwords do not match!");
+                            confirm_label.setVisible(true);
                         }
                     });
                 }
@@ -211,8 +212,9 @@ Signup_Controller {
                         public void run() {
                             pass_label.setVisible(false);
                             user_label.setVisible(false);
-                            pass_label.setText("Signing up...");
-                            pass_label.setVisible(true);
+                            confirm_label.setVisible(false);
+                            confirm_label.setText("Signing up...");
+                            confirm_label.setVisible(true);
                             try {
                                 new PageLoader().load("timeline");
                             } catch (IOException e) {

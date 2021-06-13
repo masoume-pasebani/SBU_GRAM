@@ -7,7 +7,9 @@ import java.io.IOException;
 
 public class Password_recovery_Controller {
 
-    public void back(MouseEvent mouseEvent) throws IOException {
+
+
+    public void back_to_login(MouseEvent mouseEvent) throws IOException {
         new PageLoader().load("login");
     }
 }

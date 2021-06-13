@@ -1,9 +1,8 @@
 package Model;
 
 import Common.Help.Password;
-import Model.Exeptions.PasswordsDoNotMatchException;
-import Model.Net.ClientInputHandler;
-import Model.Net.ClientOutputHandler;
+import Model.Net.ClientHandler;
+import Model.Net.API;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -23,19 +22,28 @@ public class Account implements Serializable {
     private String lastname;
     private String phonenumber;
     private String birth;
+    private byte[] image;
 
     private ArrayList<Account> followers_list=new ArrayList<>();
     private ArrayList<Account> following_list=new ArrayList<>();
     private ArrayList<Account> blockedAccounts = new ArrayList<>();
-    private ClientOutputHandler clientOutputHandler;
-    private ClientInputHandler clientInputHandler;
-    public Account(String username, String password,String name,String lastname,String phonenumber,String birth) {
+//    private API clientOutputHandler;
+//    private ClientHandler clientInputHandler;
+    public Account(String username, String password, String name, String lastname, String phonenumber, String birth, byte[] image) {
         this.username = username;
         this.password = password;
         this.name=name;
         this.lastname=lastname;
         this.phonenumber=phonenumber;
-        this.birth=birth;
+        this.image=image;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     public String getUsername() {
@@ -110,37 +118,44 @@ public class Account implements Serializable {
     public int getFollowing() {
         return following;
     }
-    public void changePassword(String currentPassword,String newPassword) throws PasswordsDoNotMatchException {
-        if (!checkPassword(currentPassword))
-            throw new PasswordsDoNotMatchException();
 
-        this.password = Password.generateHash(newPassword);
-    }
-    public ClientOutputHandler getClientOutputHandler() {
-        return clientOutputHandler;
-    }
+//    public API getClientOutputHandler() {
+//        return clientOutputHandler;
+//    }
+//
+//    public void setClientOutputHandler(API clientOutputHandler) {
+//        this.clientOutputHandler = clientOutputHandler;
+//    }
+//
+//    public ClientHandler getClientInputHandler() {
+//        return clientInputHandler;
+//    }
+//
+//    public void setClientInputHandler(ClientHandler clientInputHandler) {
+//        this.clientInputHandler = clientInputHandler;
+//    }
+//    public void userLoggedOut(){
+//        clientInputHandler = null;
+//        clientOutputHandler = null;
+//
+//    }
 
-    public void setClientOutputHandler(ClientOutputHandler clientOutputHandler) {
-        this.clientOutputHandler = clientOutputHandler;
-    }
-
-    public ClientInputHandler getClientInputHandler() {
-        return clientInputHandler;
-    }
-
-    public void setClientInputHandler(ClientInputHandler clientInputHandler) {
-        this.clientInputHandler = clientInputHandler;
-    }
-    public void userLoggedOut(){
-        clientInputHandler = null;
-        clientOutputHandler = null;
-
-    }
-    public class PasswordNotLongEnoughException extends Exception {
+    public ArrayList<Account> getFollowing_list() {
+        return following_list;
     }
 
-    public class PasswordShouldntContainNonDigitsOrLatinLettersException extends Throwable {
+    public void setFollowing_list(ArrayList<Account> following_list) {
+        this.following_list = following_list;
     }
+
+    public ArrayList<Account> getFollowers_list() {
+        return followers_list;
+    }
+
+    public void setFollowers_list(ArrayList<Account> followers_list) {
+        this.followers_list = followers_list;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Account)) {
@@ -164,6 +179,10 @@ public class Account implements Serializable {
         return blockedAccounts.contains(account);
     }
 
+    public Account authenticate(String username,String password){
+        if(this.username.equals(username) && this.password.equals(password)) return this;
+        return null;
+    }
 
 
 }

@@ -1,8 +1,7 @@
 package Model.DB;
 
 import Model.Account;
-import Model.Exeptions.PasswordsDoNotMatchException;
-import Model.Exeptions.UserDoesntExistException;
+
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -43,14 +42,18 @@ public class DataBase {
         Objects.requireNonNull(account);
         accounts.add(account);
     }
-    public static Account getAccount(String username,String password) throws PasswordsDoNotMatchException, UserDoesntExistException {
-        Account account = accounts.stream().filter(a -> a.getUsername().equals(username)).findAny().orElseThrow(UserDoesntExistException::new);
-        if (!account.checkPassword(password))
-            throw new PasswordsDoNotMatchException();
-        return account;
-    }
+//    public static Account getAccount(String username,String password) throws PasswordsDoNotMatchException, UserDoesntExistException {
+//        Account account = accounts.stream().filter(a -> a.getUsername().equals(username)).findAny().orElseThrow(UserDoesntExistException::new);
+//        if (!account.checkPassword(password))
+//            throw new PasswordsDoNotMatchException();
+//        return account;
+//    }
     public static Account getAccountForOtherUses(String username){
         return online_accounts.stream().filter(account -> account.getUsername().equals(username)).findAny().orElse(null);
+    }
+    public static void addOnlineAccount(Account account){
+        Objects.requireNonNull(account);
+        online_accounts.add(account);
     }
     public static void removeAccountFromOnlineAccounts(Account account) {
         Objects.requireNonNull(account);

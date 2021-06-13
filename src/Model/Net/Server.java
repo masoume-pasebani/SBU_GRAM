@@ -1,32 +1,47 @@
 package Model.Net;
 
 
+import Model.Account;
+import Model.Post;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Map;
+import java.util.Set;
 
-public class Server implements Runnable {
+public class Server{
+    public static final int port=2222;
+    private static boolean isServerUp = true;
 
-    @Override
-    public void run() {
+    public static Map<String, Account> accountMap=null;
+    public static Set<Post> postSet=null;
+
+    public static void main(String[] args) {
+        //DBManager.getInstance().initializeServer();
+
         ServerSocket serverSocket = null;
+
         try {
-            serverSocket = new ServerSocket(9080);
+            serverSocket = new ServerSocket(port);
+
         } catch (IOException e) {
-            e.printStackTrace();
+            System.exit(12);
         }
-        while (true) {
+
+        while ( isServerUp() ){
+            Socket currentUserSocket = null;
             try {
-                Socket socket = serverSocket.accept();
-                ClientOutputHandler clientOutputHandler = new ClientOutputHandler(socket);
-                ClientInputHandler clientInputHandler = new ClientInputHandler(socket,clientOutputHandler);
-                Thread outThread = new Thread(clientOutputHandler);
-                Thread inThread = new Thread(clientInputHandler);
-                outThread.start();
-                inThread.start();
-            } catch (Exception e) {
+                currentUserSocket = serverSocket.accept();
+                ClientHandler clientHandler=new ClientHandler(currentUserSocket);
+                new Thread( clientHandler ).start();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    private static boolean isServerUp() {
+        return isServerUp;
     }
 }

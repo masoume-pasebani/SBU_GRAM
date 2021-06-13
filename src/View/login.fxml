@@ -17,7 +17,7 @@
             <Font name="Arial Narrow" size="14.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="password_field" layoutX="136.0" layoutY="358.0" prefHeight="26.0" prefWidth="163.0" promptText="Password" style="-fx-background-color: #fce8c6;">
+      <PasswordField fx:id="password_field" layoutX="137.0" layoutY="358.0" prefHeight="26.0" prefWidth="163.0" promptText="Password" style="-fx-background-color: #fce8c6;">
          <font>
             <Font name="Arial Narrow" size="14.0" />
          </font>
@@ -37,12 +37,12 @@
             <Font name="Sitka Small" size="11.0" />
          </font>
       </Label>
-      <Label fx:id="label_for_pass" layoutX="136.0" layoutY="386.0" prefHeight="17.0" prefWidth="149.0" textFill="#e42323">
+      <Label fx:id="label_for_pass" layoutX="137.0" layoutY="384.0" prefHeight="17.0" prefWidth="163.0" textFill="#e42323">
          <font>
             <Font name="Sitka Small" size="11.0" />
          </font>
       </Label>
-      <TextField fx:id="show_password" layoutX="136.0" layoutY="394.0" prefHeight="26.0" prefWidth="163.0" style="-fx-background-color: #fce8c6;" visible="false" />
+      <TextField fx:id="show_password" layoutX="136.0" layoutY="358.0" prefHeight="26.0" prefWidth="163.0" style="-fx-background-color: #fce8c6;" visible="false" />
       <CheckBox layoutX="319.0" layoutY="363.0" mnemonicParsing="false" onAction="#show_pass" text="show" textFill="#2b36ff">
          <font>
             <Font name="Sitka Small Italic" size="12.0" />
@@ -63,7 +63,7 @@
             <Font name="Sitka Small" size="11.0" />
          </font>
       </Label>
-      <Label fx:id="pass_recovery" layoutX="175.0" layoutY="496.0" onMouseClicked="#recovery" prefHeight="17.0" prefWidth="85.0" text="Password recovery" textFill="#7c83e5">
+      <Label fx:id="pass_recovery" layoutX="175.0" layoutY="496.0" onMouseClicked="#recovery" prefHeight="17.0" prefWidth="85.0" text="Password recovery" textFill="#3dacd5c2">
          <font>
             <Font size="10.0" />
          </font>

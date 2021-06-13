@@ -50,7 +50,7 @@ public class Postitem_Controller {
 
 
     public AnchorPane init() {
-        user_label.setText(post.getWritername());
+        //user_label.setText(post.getWritername());
         title_label.setText(post.getTitle());
         return root;
     }
