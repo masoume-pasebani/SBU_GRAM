@@ -1,7 +1,10 @@
 package Client.Controller;
 
 
+import Client.API;
+import Client.ClientEXE;
 import Common.Help.Validation;
+import Common.Model.Account;
 import Common.Model.PageLoader;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -13,7 +16,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
-public class login_Controller{
+public class login_Controller extends Controller{
 
 
     @FXML
@@ -37,6 +40,8 @@ public class login_Controller{
             @Override
             public void run() {
                 String username = username_field.getText();
+                String password = password_field.getText();
+
                 if (username.isEmpty() && password_field.getText().isEmpty()) {
                     Platform.runLater(new Runnable() {
                         @Override
@@ -95,7 +100,6 @@ public class login_Controller{
                     });
                     return;
                 }
-                String password = password_field.getText();
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
@@ -103,6 +107,18 @@ public class login_Controller{
                         label_for_pass.setVisible(true);
                     }
                 });
+
+                Account account= API.login(username,password);
+                if(account==null){
+                    showInvalidLoginDialog();
+                    return;
+                }
+                ClientEXE.setProfile(account);
+                try {
+                    new PageLoader().load("timeline");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 //                try {
 //                    DB.oos.writeObject(new LoginCommand(username, password));
 //                } catch (IOException e) {
@@ -111,6 +127,12 @@ public class login_Controller{
             }
         };
         return runnable;
+    }
+
+    public void showInvalidLoginDialog() {
+        String title = "Error in login";
+        String contentText = "invalid username or password\nTry again or sign up";
+        this.makeAndShowInformationDialog( title, contentText );
     }
 
     public void login(ActionEvent actionEvent) throws IOException {

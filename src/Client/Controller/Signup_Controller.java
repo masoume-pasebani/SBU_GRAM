@@ -1,5 +1,6 @@
 package Client.Controller;
 
+import Client.Client;
 import Common.Help.Validation;
 import Common.Model.Account;
 import Common.Model.PageLoader;
@@ -7,6 +8,7 @@ import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,13 +18,17 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.ResourceBundle;
 
 public class
-Signup_Controller {
+Signup_Controller extends Controller {
 
+    private final static String Profile_Picture="images/default_user.png";
     @FXML
     private Label confirm_label;
     @FXML
@@ -59,8 +65,8 @@ Signup_Controller {
     private Button login_btn;
     @FXML
     private Button signup_btn;
+    private Button connectButton;
 
-    @FXML
     public void initialize(){
         TranslateTransition transition=new TranslateTransition(Duration.millis(1000),add_photo);
         transition.setToX(-256);
@@ -135,6 +141,7 @@ Signup_Controller {
     }
 
     private Runnable getSignUpHandler() {
+
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
@@ -244,6 +251,27 @@ Signup_Controller {
         return runnable;
 
     }
+    public void connectToServer(){
+        Client.connectToServer();
+        if ( Client.isConnected() ) {
+            connectButton.setVisible(false);
+            return;
+        }
+        String title = "server connection problem";
+        String contentText = "please check server is running and server ip and all connections";
+        this.makeAndShowInformationDialog( title, contentText );
+    }
+    private void clearFields() {
+        this.username_field.setText( null );
+        this.pass_field.setText( null );
+        this.confirm.setText( null );
+        this.name_field.setText( null );
+        this.lastname_field.setText( null );
+        this.phonenumber_field.setText(null);
+        this.birth_field.setText(null);
+        Image defaultImage = new Image( Signup_Controller.Profile_Picture);
+        this.image.setImage( defaultImage );
+    }
 
     public void add(ActionEvent actionEvent) {
         image.setImage(chooseImage());
@@ -253,4 +281,6 @@ Signup_Controller {
         File file = fileChooser.showOpenDialog( PageLoader.stage.getScene().getWindow() );
         return new Image( file.toURI().toString() );
     }
+
+
 }

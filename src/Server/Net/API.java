@@ -1,8 +1,9 @@
-package Server.DB.Net;
+package Server.Net;
 
 import Common.Command;
 import Common.Time;
 import Common.Model.Account;
+import Server.Net.Server;
 
 import java.util.HashMap;
 import java.util.Map;

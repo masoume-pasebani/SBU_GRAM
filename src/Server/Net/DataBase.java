@@ -1,4 +1,4 @@
-package Server.DB.Net;
+package Server.Net;
 
 import Common.Model.Account;
 import Common.Model.Post;
@@ -60,7 +60,7 @@ public class DataBase {
 //    public static boolean userExists(String username){
 //        return accounts.stream().anyMatch(account -> account.getUsername().equals(username));
 //    }
-    public static final String FILE_PREFIX = "./DB/";
+    public static final String FILE_PREFIX = "C:\\Users\\fara\\IdeaProjects\\SBU GRAM\\src\\Server\\DB\\";
     public static final String PROFILES_FILE = FILE_PREFIX + "ProfilesDB";
     public static final String Posts_FILE = FILE_PREFIX + "PostsDB";
 

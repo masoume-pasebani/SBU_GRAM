@@ -1,4 +1,4 @@
-package Server.DB.Net;
+package Server.Net;
 
 
 import Common.Model.Account;
