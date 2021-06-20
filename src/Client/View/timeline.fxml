@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.166189111747851" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="700.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller.Timeline_Controller">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="30.0" prefWidth="429.0" style="-fx-background-color: b4cff4;">
+         <children>
+            <Label layoutX="186.0" layoutY="14.0" onMouseClicked="#refresh" text="Refresh" textFill="#155eac">
+               <font>
+                  <Font name="Sitka Small Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="36.0" fitWidth="56.0" layoutX="43.0" layoutY="60.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/search_104px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="56.0" layoutX="196.0" layoutY="60.0" onMouseClicked="#add_post" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/plus_math_104px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="56.0" layoutX="350.0" layoutY="60.0" onMouseClicked="#go_to_profile" onMouseDragged="#go_to_profile" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/contacts_104px.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="579.0" prefWidth="429.0" style="-fx-background-color: #09063;">
+         <children>
+            <ListView layoutX="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="593.0" prefWidth="430.0" />
+         </children>
+      </AnchorPane>
+  </items>
+</SplitPane>
