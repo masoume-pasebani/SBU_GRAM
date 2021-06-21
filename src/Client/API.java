@@ -8,10 +8,10 @@ import java.util.Map;
 
 public class API {
 
-    public static boolean IsUserNameExists(String username2check){
+    public static boolean IsUserNameExists(String usernametocheck){
         Map<String,Object> toSend = new HashMap<>();
         toSend.put("command", Command.username_unique);
-        toSend.put("username",username2check);
+        toSend.put("username",usernametocheck);
         Map<String,Object> recieved = Client.serve(toSend);
         return (boolean) recieved.get("answer");
     }
@@ -50,6 +50,13 @@ public class API {
         Map<String,Object> recieved = Client.serve(toSend);
         if ( recieved.get("answer") == null ) return false;
         return (Boolean) recieved.get("answer");
+    }
+
+    public static Boolean pass_recovery(){
+        Map<String,Object> toSend = new HashMap<>();
+        toSend.put("command",Command.pass_recovery);
+        Map<String, Object> recieved=Client.serve(toSend);
+        return (boolean)recieved.get("answer");
     }
 
 }

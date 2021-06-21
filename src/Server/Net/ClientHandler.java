@@ -16,6 +16,7 @@ ClientHandler implements Runnable {
     private Socket socket;
     private ObjectInputStream ois;
     private ObjectOutputStream oos;
+    public Boolean clienton=true;
 
 
     public ClientHandler(Socket socket) {
@@ -29,25 +30,31 @@ ClientHandler implements Runnable {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void run() {
-        String command;
-        while (true) {
-            Map<String, Object> incom = null;
+
+        while (clienton) {
+            Map<String, Object> income = null;
             try {
-                incom = (Map<String, Object>) ois.readObject();
+                income = (Map<String, Object>) ois.readObject();
                 Map<String, Object> answer = null;
-                Command c = (Command) incom.get("command");
+                Command c = (Command) income.get("command");
                 switch (c) {
+                    case username_unique:
+                      answer=API.isUserNameExists(income);
+                      break;
                     case login:
-                        API.login(incom);
+                        answer=API.login(income);
                         break;
                     case signup:
-                        API.signUp(incom);
+                        answer=API.signUp(income);
                         break;
                     case logout:
-                        API.logout(incom);
+                        answer=API.logout(income);
                         break;
-
+                    case pass_recovery:
+                        answer=API.pass_recovery(income);
+                        break;
 
                 }
                 oos.writeObject(answer);

@@ -6,6 +6,7 @@ import Common.Model.Account;
 import Common.Model.PageLoader;
 import Client.API;
 import Client.ClientEXE;
+import Server.Net.Server;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -22,6 +23,7 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serial;
 import java.nio.charset.StandardCharsets;
 
 public class Signup_Controller extends Controller {
@@ -113,16 +115,7 @@ public class Signup_Controller extends Controller {
 
 
     }
-    public void connectToServer(){
-        Client.connectToServer();
-        if ( Client.isConnected() ) {
-            confirm_label.setText("connected");
-            confirm_label.setVisible(true);
-        }
-        String title = "server connection problem";
-        String contentText = "please check server is running and server ip and all connections";
-        this.makeAndShowInformationDialog( title, contentText );
-    }
+
     public void showNotConnectedDialog(){
         String title = "not connected to server";
         String contentText = "you are not connected to server yet, please use connection panel!";
@@ -147,14 +140,12 @@ public class Signup_Controller extends Controller {
 
     private Runnable getSignUpHandler() {
 
-
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 String username = username_field.getText();
                 String password = pass_field.getText();
                 String confirm_str= confirm.getText();
-                boolean exists=API.IsUserNameExists(username_field.getText());
                 if (username.isEmpty() && pass_field.getText().isEmpty() && confirm_label.getText().isEmpty()) {
                     Platform.runLater(new Runnable() {
                         @Override
@@ -221,7 +212,8 @@ public class Signup_Controller extends Controller {
                         }
                     });
                 }
-                if(Validation.isAlphaNumeric(username_field.getText()) && Validation.isAlphaNumeric(pass_field.getText()) && pass_field.getText().length()>=8 && confirm.getText().equals(pass_field.getText()) && exists){
+                boolean exists=API.IsUserNameExists(username_field.getText());
+                if ( exists){
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
@@ -229,6 +221,7 @@ public class Signup_Controller extends Controller {
                             confirm_label.setVisible(false);
                             user_label.setText("Username already exists, choose another one!");
                             user_label.setVisible(true);
+
                         }
                     });
 
@@ -243,6 +236,7 @@ public class Signup_Controller extends Controller {
                             Account createaccount= makeProfileFromPageContent();
                             ClientEXE.setProfile(createaccount);
                             API.signUp(createaccount);
+                            Server.accounts.add(createaccount);
                             showProfileCreatedDialog();
                             try {
                                 new PageLoader().load("timeline");

@@ -3,6 +3,7 @@ package Client.Controller;
 
 
 import Client.API;
+import Client.Client;
 import Client.ClientEXE;
 import Common.Help.Validation;
 import Common.Model.Account;
@@ -37,7 +38,9 @@ public class login_Controller extends Controller{
     }
 
     private Runnable LoginHandler() {
+
         Runnable runnable = new Runnable() {
+
             @Override
             public void run() {
                 String username = username_field.getText();
@@ -48,6 +51,18 @@ public class login_Controller extends Controller{
                         @Override
                         public void run() {
                             label_for_username.setText("No username provided!");
+                            label_for_username.setVisible(true);
+                            label_for_pass.setText("No password provided!");
+                            label_for_pass.setVisible(true);
+                        }
+                    });
+                    return;
+                }
+                if (!Validation.isAlphaNumeric(username_field.getText()) && password_field.getText().isEmpty()) {
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            label_for_username.setText("Invalid username!");
                             label_for_username.setVisible(true);
                             label_for_pass.setText("No password provided!");
                             label_for_pass.setVisible(true);
@@ -66,18 +81,7 @@ public class login_Controller extends Controller{
                     });
                     return;
                 }
-                if (!Validation.isAlphaNumeric(username_field.getText()) && password_field.getText().isEmpty()) {
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            label_for_username.setText("Invalid username!");
-                            label_for_username.setVisible(true);
-                            label_for_pass.setText("No password provided!");
-                            label_for_pass.setVisible(true);
-                        }
-                    });
-                    return;
-                }
+
                 if (!Validation.isAlphaNumeric(username_field.getText()) && !Validation.isAlphaNumeric(password_field.getText()) || password_field.getText().length() < 8) {
                     Platform.runLater(new Runnable() {
                         @Override
@@ -90,17 +94,7 @@ public class login_Controller extends Controller{
                     });
                     return;
                 }
-                if(!username.isEmpty() && (Validation.isAlphaNumeric(password_field.getText())||!Validation.isAlphaNumeric(password_field.getText()))){
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            label_for_username.setText("No username provided!");
-                            label_for_username.setVisible(true);
-                            label_for_pass.setVisible(false);
-                        }
-                    });
-                    return;
-                }
+
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
@@ -155,7 +149,12 @@ public class login_Controller extends Controller{
             show_password.setText(show_password.getText());
         }
     }
+    public void showNotConnectedDialog(){
+        String title = "not connected to server";
+        String contentText = "you are not connected to server yet, please use connection panel!";
+        this.makeAndShowInformationDialog( title, contentText );
 
+    }
 
     public void recovery(MouseEvent mouseEvent) throws IOException {
         new PageLoader().load("pass_recovery");

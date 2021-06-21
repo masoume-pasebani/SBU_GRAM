@@ -25,7 +25,7 @@ public class API {
         ans.put("answer",profile);
 
         if(profile != null){
-            System.out.println(profile.getUsername() + " signin");
+            System.out.println(profile.getUsername() + " login");
             System.out.println("time : "+ Time.getTime());
         }
         return ans;
@@ -72,6 +72,11 @@ public class API {
         ans.put("command",Command.username_unique);
 
         return ans;
+    }
+
+    public static Map<String,Object> pass_recovery(Map<String,Object> income){
+        String usernam;
+        return null;
     }
 
 }

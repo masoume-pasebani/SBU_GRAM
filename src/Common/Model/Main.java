@@ -1,13 +1,16 @@
 package Common.Model;
 
+import Client.Client;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception{
+
         PageLoader.initStage(stage); //this is only needed when you start program
         //and need a new stage. all scenes will be loaded on this stage
+        Client.connectToServer();
         new PageLoader().load("login");
     }
 

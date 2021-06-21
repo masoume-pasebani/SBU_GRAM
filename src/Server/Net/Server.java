@@ -9,6 +9,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Map;
 import java.util.Set;
+import java.util.Vector;
 
 public class Server{
     public static final int port=2222;
@@ -16,6 +17,7 @@ public class Server{
 
     public static Map<String, Account> accountMap=null;
     public static Set<Post> postSet=null;
+    public static Vector<Account> accounts=new Vector<>();
 
     public static void main(String[] args) {
         DataBase.getInstance().initializeServer();

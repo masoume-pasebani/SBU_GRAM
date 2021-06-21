@@ -8,7 +8,10 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="430.0" style="-fx-background-color: #090626;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller.Profile_Controller">
    <children>
-      <ImageView fitHeight="142.0" fitWidth="142.0" layoutX="34.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="image" fitHeight="142.0" fitWidth="128.0" layoutX="33.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/default_user.png" />
+         </image></ImageView>
       <Label layoutX="52.0" layoutY="247.0" text="Posts" textFill="#3745df">
          <font>
             <Font name="Sitka Small Bold Italic" size="16.0" />
@@ -23,17 +26,17 @@
             <Font name="Sitka Small Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="187.0" layoutY="51.0" prefHeight="17.0" prefWidth="142.0" text="Name and Lastname" textFill="#3745df">
+      <Label layoutX="187.0" layoutY="51.0" prefHeight="17.0" prefWidth="45.0" text="Name:" textFill="#3745df">
          <font>
             <Font name="Sitka Small Italic" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="186.0" layoutY="87.0" text="Username" textFill="#3745df">
+      <Label layoutX="182.0" layoutY="99.0" text="Username:" textFill="#3745df">
          <font>
             <Font name="Sitka Small Italic" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="187.0" layoutY="113.0" prefHeight="17.0" prefWidth="78.0" text="Birth year" textFill="#3745df">
+      <Label layoutX="182.0" layoutY="120.0" prefHeight="17.0" prefWidth="71.0" text="Birth year:" textFill="#3745df">
          <font>
             <Font name="Sitka Small Italic" size="12.0" />
          </font>
@@ -48,5 +51,51 @@
             <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/home_104px.png" />
          </image>
       </ImageView>
+      <Label layoutX="182.0" layoutY="75.0" prefHeight="17.0" prefWidth="71.0" text="LastName:" textFill="#3745df">
+         <font>
+            <Font name="Sitka Small Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="name_l" layoutX="236.0" layoutY="51.0" prefHeight="17.0" prefWidth="158.0" textFill="#5df8fa">
+         <font>
+            <Font name="Arial Narrow" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lastname_l" layoutX="258.0" layoutY="75.0" prefHeight="17.0" prefWidth="158.0" textFill="#5df8fa">
+         <font>
+            <Font name="Arial Narrow" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="user_l" layoutX="253.0" layoutY="98.0" prefHeight="17.0" prefWidth="158.0" textFill="#5df8fa" />
+      <Label fx:id="birth_l" layoutX="258.0" layoutY="120.0" prefHeight="17.0" prefWidth="158.0" textFill="#5df8fa">
+         <font>
+            <Font name="Arial Narrow" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="182.0" layoutY="144.0" prefHeight="17.0" prefWidth="97.0" text="Phone Number:" textFill="#3745df">
+         <font>
+            <Font name="Sitka Small Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="phone_l" layoutX="287.0" layoutY="144.0" prefHeight="17.0" prefWidth="149.0" textFill="#5df8fa">
+         <font>
+            <Font name="Arial Narrow" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="posts" layoutX="52.0" layoutY="212.0" prefHeight="35.0" prefWidth="45.0" textFill="#5df8fa">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="followers" layoutX="187.0" layoutY="212.0" prefHeight="35.0" prefWidth="64.0" textFill="#5df8fa">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="following" layoutX="327.0" layoutY="212.0" prefHeight="35.0" prefWidth="55.0" textFill="#5df8fa">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

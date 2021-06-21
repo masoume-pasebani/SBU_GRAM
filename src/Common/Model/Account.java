@@ -13,6 +13,7 @@ public class Account implements Serializable {
     private static final long serialVersionUID = 161207394374102042L;
     private int followers = 0;
     private int following = 0;
+    private int post=0;
 
     private String username;
     private String password;
@@ -25,9 +26,12 @@ public class Account implements Serializable {
     private ArrayList<Account> followers_list=new ArrayList<>();
     private ArrayList<Account> following_list=new ArrayList<>();
     private ArrayList<Account> blockedAccounts = new ArrayList<>();
-    private ArrayList<Post> posts = new ArrayList<Post>();
+    private ArrayList<Post> posts = new ArrayList<>();
 //    private API clientOutputHandler;
 //    private ClientHandler clientInputHandler;
+    public Account(String username) {
+        this.username = username;
+    }
     public Account(String username, String password, String name, String lastname, String phonenumber, String birth, byte[] image) {
         this.username = username;
         this.password = password;
@@ -36,6 +40,8 @@ public class Account implements Serializable {
         this.phonenumber=phonenumber;
         this.image=image;
     }
+
+
 
     public byte[] getImage() {
         return image;
@@ -126,7 +132,14 @@ public class Account implements Serializable {
         return following;
     }
 
-//    public API getClientOutputHandler() {
+    public int getPost() {
+        return post;
+    }
+
+    public void setPost(int post) {
+        this.post = post;
+    }
+    //    public API getClientOutputHandler() {
 //        return clientOutputHandler;
 //    }
 //

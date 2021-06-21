@@ -11,7 +11,6 @@ public class Post implements Serializable {
     private Account writername;
     private String title;
     private String desc;
-    private Privacy privacy;
     private int likes;
     private int reposts;
     private String address;
@@ -62,13 +61,6 @@ public class Post implements Serializable {
         this.likes--;
     }
 
-    public Privacy getPrivacy() {
-        return privacy;
-    }
-
-    public void setPrivacy(Privacy privacy) {
-        this.privacy = privacy;
-    }
 
     public void comment(Account commenter){
         Comment c = new Comment(commenter);
