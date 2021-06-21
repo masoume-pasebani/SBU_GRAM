@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -9,12 +10,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="430.0" style="-fx-background-color: #090626;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller.Password_recovery_Controller">
    <children>
-      <TextField layoutX="135.0" layoutY="181.0" prefHeight="26.0" prefWidth="160.0" promptText="Phone Number">
+      <TextField fx:id="phone_field" layoutX="-181.0" layoutY="283.0" prefHeight="26.0" prefWidth="160.0" promptText="Phone Number" style="-fx-background-color: #fce8c6;">
          <font>
             <Font name="Arial Narrow" size="14.0" />
          </font>
       </TextField>
-      <Label layoutX="135.0" layoutY="138.0" prefHeight="17.0" prefWidth="160.0" text="Enter your phone number" textFill="#2934d5">
+      <Label fx:id="question" layoutX="447.0" layoutY="251.0" prefHeight="17.0" prefWidth="160.0" text="Enter your phone number:" textFill="#2934d5">
          <font>
             <Font name="Sitka Small Italic" size="12.0" />
          </font>
@@ -24,5 +25,48 @@
             <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/left_104px.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="check" fitHeight="54.0" fitWidth="46.0" layoutX="319.0" layoutY="536.0" onMouseClicked="#check" pickOnBounds="true" preserveRatio="true" rotate="12.8">
+         <image>
+            <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/checkmark_104px.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="username_field" layoutX="135.0" layoutY="164.0" prefHeight="26.0" prefWidth="160.0" promptText="Username" style="-fx-background-color: #fce8c6;">
+         <font>
+            <Font name="Arial Narrow" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="135.0" layoutY="135.0" prefHeight="17.0" prefWidth="160.0" text="Enter your username:" textFill="#2934d5">
+         <font>
+            <Font name="Sitka Small Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="error" layoutX="135.0" layoutY="190.0" prefHeight="17.0" prefWidth="259.0" textFill="#ed1919" />
+      <PasswordField fx:id="newpass_field" layoutX="-181.0" layoutY="361.0" prefHeight="26.0" prefWidth="160.0" promptText="New Password" style="-fx-background-color: #fce8c6;">
+         <font>
+            <Font name="Arial Narrow" size="14.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="confirm_field" layoutX="447.0" layoutY="421.0" prefHeight="26.0" prefWidth="160.0" promptText="Confirm New Password" style="-fx-background-color: #fce8c6;">
+         <font>
+            <Font name="Arial Narrow" size="14.0" />
+         </font>
+      </PasswordField>
+      <Label fx:id="pass_q" layoutX="447.0" layoutY="333.0" prefHeight="17.0" prefWidth="160.0" text="Enter your new password:" textFill="#2934d5">
+         <font>
+            <Font name="Sitka Small Italic" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="check1" fitHeight="54.0" fitWidth="46.0" layoutX="319.0" layoutY="545.0" onMouseClicked="#check1" pickOnBounds="true" preserveRatio="true" rotate="12.8" visible="false">
+         <image>
+            <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/checkmark_104px.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="check2" fitHeight="54.0" fitWidth="46.0" layoutX="319.0" layoutY="551.0" onMouseClicked="#check2" pickOnBounds="true" preserveRatio="true" rotate="12.8" visible="false">
+         <image>
+            <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/checkmark_104px.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="pass_label" layoutX="135.0" layoutY="456.0" prefHeight="17.0" prefWidth="160.0" textFill="#e21717" />
+      <Label layoutX="135.0" layoutY="309.0" prefHeight="17.0" prefWidth="160.0" textFill="#ff2424" visible="false" />
    </children>
 </Pane>
