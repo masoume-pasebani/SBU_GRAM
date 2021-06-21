@@ -10,14 +10,18 @@ import java.net.SocketException;
 import java.util.Map;
 
 public class Client {
-
-    public static boolean isconnected=true;
+    public static String serverAddress="localhost";
     public static final int port=2222;
-    public static String serverAddress="127.0.0.1";
-
+    public static boolean isconnected=false;
     public static Socket socket;
     public static ObjectInputStream ois;
     public static ObjectOutputStream oos;
+
+
+    public static boolean isConnected(){
+        return isconnected;
+    }
+
 
     public static Boolean connectToServer(){
         if(socket != null) return false;
@@ -59,6 +63,7 @@ public class Client {
         oos = null;
         return false;
     }
+    @SuppressWarnings("unchecked")
     public static Map<String,Object> serve(Map<String,Object> toSend){
         Map<String,Object> recieved = null;
         try{
@@ -75,7 +80,5 @@ public class Client {
         return recieved;
     }
 
-    public static boolean isConnected(){
-        return isconnected;
-    }
+
 }

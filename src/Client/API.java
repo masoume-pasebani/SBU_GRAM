@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class API {
 
-    public static boolean isUserNameExists(String username2check){
+    public static boolean IsUserNameExists(String username2check){
         Map<String,Object> toSend = new HashMap<>();
         toSend.put("command", Command.username_unique);
         toSend.put("username",username2check);
@@ -26,11 +26,6 @@ public class API {
         return (Account) recieved.get("answer");
     }
 
-
-    /**
-     this api is used for signup
-     if gets the profile which is made from signup page and save it in server
-     **/
     public static Boolean signUp(Account profile){
         Map<String,Object> toSend = new HashMap<>();
         toSend.put("command", Command.signup);
@@ -49,10 +44,6 @@ public class API {
         return (Boolean) recieved.get("answer");
     }
 
-    /**
-     it tell to server that i want to quit
-     server will close all connections after recieving this
-     **/
     public static Boolean logout(){
         Map<String,Object> toSend = new HashMap<>();
         toSend.put("command", Command.logout);

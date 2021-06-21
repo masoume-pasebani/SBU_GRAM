@@ -4,11 +4,12 @@ import Client.Client;
 import Common.Help.Validation;
 import Common.Model.Account;
 import Common.Model.PageLoader;
+import Client.API;
+import Client.ClientEXE;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -18,15 +19,12 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
-import javax.swing.*;
+
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.ResourceBundle;
 
-public class
-Signup_Controller extends Controller {
+public class Signup_Controller extends Controller {
 
     private final static String Profile_Picture="images/default_user.png";
     @FXML
@@ -65,7 +63,6 @@ Signup_Controller extends Controller {
     private Button login_btn;
     @FXML
     private Button signup_btn;
-    private Button connectButton;
 
     public void initialize(){
         TranslateTransition transition=new TranslateTransition(Duration.millis(1000),add_photo);
@@ -116,8 +113,24 @@ Signup_Controller extends Controller {
 
 
     }
+    public void connectToServer(){
+        Client.connectToServer();
+        if ( Client.isConnected() ) {
+            confirm_label.setText("connected");
+            confirm_label.setVisible(true);
+        }
+        String title = "server connection problem";
+        String contentText = "please check server is running and server ip and all connections";
+        this.makeAndShowInformationDialog( title, contentText );
+    }
+    public void showNotConnectedDialog(){
+        String title = "not connected to server";
+        String contentText = "you are not connected to server yet, please use connection panel!";
+        this.makeAndShowInformationDialog( title, contentText );
 
+    }
     public void signup(ActionEvent actionEvent) throws IOException {
+
         this.signUp();
 
     }
@@ -125,22 +138,15 @@ Signup_Controller extends Controller {
     public void login(ActionEvent actionEvent) throws IOException {
         new PageLoader().load("login");
     }
-    private Account profile_informations() {
-        Account user = new Account(username_field.getText(),pass_field.getText(),name_field.getText(),lastname_field.getText(),phonenumber_field.getText(),birth_field.getText(),image.getImage().getUrl().getBytes(StandardCharsets.UTF_8));
-        user.setPassword( pass_field.getText() );
-        user.setName(name_field.getText() );
-        user.setLastname(lastname_field.getText());
-        user.setBirth(birth_field.getText());
-        user.setPhonenumber(null);
-        user.setImage(image.getImage().getUrl().getBytes(StandardCharsets.UTF_8));
-        return user;
-    }
+
 
     private void signUp() {
+
         (new Thread(this.getSignUpHandler())).start();
     }
 
     private Runnable getSignUpHandler() {
+
 
         Runnable runnable = new Runnable() {
             @Override
@@ -148,6 +154,7 @@ Signup_Controller extends Controller {
                 String username = username_field.getText();
                 String password = pass_field.getText();
                 String confirm_str= confirm.getText();
+                boolean exists=API.IsUserNameExists(username_field.getText());
                 if (username.isEmpty() && pass_field.getText().isEmpty() && confirm_label.getText().isEmpty()) {
                     Platform.runLater(new Runnable() {
                         @Override
@@ -202,6 +209,7 @@ Signup_Controller extends Controller {
                     return;
                 }
 
+
                 if(Validation.isAlphaNumeric(username_field.getText()) && Validation.isAlphaNumeric(pass_field.getText()) && pass_field.getText().length()>=8 && !confirm.getText().equals(pass_field.getText())){
                     Platform.runLater(new Runnable() {
                         @Override
@@ -213,6 +221,18 @@ Signup_Controller extends Controller {
                         }
                     });
                 }
+                if(Validation.isAlphaNumeric(username_field.getText()) && Validation.isAlphaNumeric(pass_field.getText()) && pass_field.getText().length()>=8 && confirm.getText().equals(pass_field.getText()) && exists){
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            pass_label.setVisible(false);
+                            confirm_label.setVisible(false);
+                            user_label.setText("Username already exists, choose another one!");
+                            user_label.setVisible(true);
+                        }
+                    });
+
+                }
                 if(Validation.isAlphaNumeric(username_field.getText()) && Validation.isAlphaNumeric(pass_field.getText()) && pass_field.getText().length()>=8 && confirm.getText().equals(pass_field.getText())) {
                     Platform.runLater(new Runnable() {
                         @Override
@@ -220,8 +240,10 @@ Signup_Controller extends Controller {
                             pass_label.setVisible(false);
                             user_label.setVisible(false);
                             confirm_label.setVisible(false);
-                            confirm_label.setText("Signing up...");
-                            confirm_label.setVisible(true);
+                            Account createaccount= makeProfileFromPageContent();
+                            ClientEXE.setProfile(createaccount);
+                            API.signUp(createaccount);
+                            showProfileCreatedDialog();
                             try {
                                 new PageLoader().load("timeline");
                             } catch (IOException e) {
@@ -251,16 +273,25 @@ Signup_Controller extends Controller {
         return runnable;
 
     }
-    public void connectToServer(){
-        Client.connectToServer();
-        if ( Client.isConnected() ) {
-            connectButton.setVisible(false);
-            return;
-        }
-        String title = "server connection problem";
-        String contentText = "please check server is running and server ip and all connections";
+
+    private Account makeProfileFromPageContent() {
+        Account returnValue = new Account(username_field.getText(),pass_field.getText(),name_field.getText(),lastname_field.getText(),phonenumber_field.getText(),birth_field.getText(),image.getImage().getUrl().getBytes(StandardCharsets.UTF_8));
+        returnValue.setUsername(username_field.getText());
+        returnValue.setPassword(pass_field.getText() );
+        returnValue.setName(name_field.getText() );
+        returnValue.setLastname(lastname_field.getText() );
+        returnValue.setBirth(birth_field.getText());
+        returnValue.setPhonenumber(phonenumber_field.getText());
+        returnValue.setImage( image.getImage().getUrl().getBytes(StandardCharsets.UTF_8) );
+        return returnValue;
+    }
+
+    public void showProfileCreatedDialog( ){
+        String title = "Success";
+        String contentText = "profile created succesfully!";
         this.makeAndShowInformationDialog( title, contentText );
     }
+
     private void clearFields() {
         this.username_field.setText( null );
         this.pass_field.setText( null );

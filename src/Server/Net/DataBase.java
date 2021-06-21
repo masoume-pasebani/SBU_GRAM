@@ -88,19 +88,19 @@ public class DataBase {
             e.printStackTrace();
         }
 
-        try {
-            FileInputStream fin = new FileInputStream(DataBase.Posts_FILE);
-            ObjectInputStream inFromFile = new ObjectInputStream(fin);
-            Server.postSet = new ConcurrentSkipListSet<>( (ConcurrentSkipListSet<Post>) inFromFile.readObject());
-            inFromFile.close();
-            fin.close();
-        }
-        catch(EOFException | StreamCorruptedException e){
-            Server.postSet = new ConcurrentSkipListSet<>();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+//        try {
+//            FileInputStream fin = new FileInputStream(DataBase.Posts_FILE);
+//            ObjectInputStream inFromFile = new ObjectInputStream(fin);
+//            Server.postSet = new ConcurrentSkipListSet<>( (ConcurrentSkipListSet<Post>) inFromFile.readObject());
+//            inFromFile.close();
+//            fin.close();
+//        }
+//        catch(EOFException | StreamCorruptedException e){
+//            Server.postSet = new ConcurrentSkipListSet<>();
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+   }
 
     public synchronized void updateDataBase() {
         try {
