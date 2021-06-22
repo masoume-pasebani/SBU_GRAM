@@ -1,5 +1,7 @@
 package Client.Controller;
 
+import Client.API;
+import Client.ClientEXE;
 import Common.Model.PageLoader;
 import Common.Model.Post;
 import javafx.fxml.FXML;
@@ -28,4 +30,12 @@ public class Timeline_Controller {
     public void gotopro(MouseEvent mouseEvent) throws IOException {
         new PageLoader().load("profile");
     }
+
+    public void logout() throws IOException {
+        API.logout();
+        Client.Client.disconnectFromServer();
+        ClientEXE.profile = null;
+        new PageLoader().load("login");
+    }
+
 }

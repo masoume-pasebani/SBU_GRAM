@@ -16,6 +16,13 @@ public class API {
         return (boolean) recieved.get("answer");
     }
 
+    public static Boolean pass_recovery(){
+        Map<String,Object> toSend = new HashMap<>();
+        toSend.put("command",Command.pass_recovery);
+        Map<String, Object> recieved=Client.serve(toSend);
+        return (boolean)recieved.get("answer");
+    }
+
     public static Account login(String username, String password){
         Map<String,Object> toSend = new HashMap<>();
         toSend.put("command", Command.login);
@@ -52,11 +59,15 @@ public class API {
         return (Boolean) recieved.get("answer");
     }
 
-    public static Boolean pass_recovery(){
-        Map<String,Object> toSend = new HashMap<>();
-        toSend.put("command",Command.pass_recovery);
-        Map<String, Object> recieved=Client.serve(toSend);
-        return (boolean)recieved.get("answer");
+
+    public static boolean publish_post(Account profile){
+        Map<String,Object> tosend =new HashMap<>();
+        tosend.put("command",Command.publish_post);
+        tosend.put("new post",profile);
+        Map<String,Object> recieved =Client.serve(tosend);
+        return (Boolean) recieved.get("answer");
     }
+
+
 
 }

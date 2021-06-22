@@ -1,6 +1,7 @@
 package Server.Net;
 
 import Common.Command;
+import Common.Model.Post;
 import Common.Time;
 import Common.Model.Account;
 import Server.Net.Server;
@@ -99,5 +100,23 @@ public class API {
         ans.put("answer",new Boolean(true));
         return ans;
     }
+
+    public static Map<String,Object>publish_post(Map<String,Object>income){
+        Post post=(Post) income.get("post");
+        String username=(String) income.get("username");
+        Account account=new Account(username);
+        Server.postSet.add(post);
+        Server.accountMap.get(username).setPost(account.getPost()+1);
+        DataBase.getInstance().updateDataBase();
+        Map<String,Object>ans=new HashMap<>();
+        ans.put("command",Command.publish_post);
+        ans.put("username",username);
+        ans.put("answer",new Boolean(true));
+        System.out.println("an account with this username "+post.getWritername()+" published a post at "+Time.getTime());
+
+        return ans;
+
+    }
+
 
 }

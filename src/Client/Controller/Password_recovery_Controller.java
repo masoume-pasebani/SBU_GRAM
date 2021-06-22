@@ -81,6 +81,7 @@ public class Password_recovery_Controller {
         transition1.setToX(316);
         transition1.play();
         TranslateTransition transition2=new TranslateTransition(Duration.millis(1000),confirm_field);
+        transition2.setToX(-312);
         transition2.play();
     }
 

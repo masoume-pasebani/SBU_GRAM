@@ -28,8 +28,8 @@ public class Account implements Serializable {
     private ArrayList<Account> following_list=new ArrayList<>();
     private ArrayList<Account> blockedAccounts = new ArrayList<>();
     private ArrayList<Post> posts = new ArrayList<>();
-//    private API clientOutputHandler;
-//    private ClientHandler clientInputHandler;
+
+
     public Account(String username) {
         this.username = username;
     }
@@ -41,7 +41,6 @@ public class Account implements Serializable {
         this.phonenumber=phonenumber;
         this.image=image;
     }
-
 
 
     public byte[] getImage() {

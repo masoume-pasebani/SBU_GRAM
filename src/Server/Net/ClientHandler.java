@@ -58,6 +58,9 @@ ClientHandler implements Runnable {
                     case update_profile:
                         answer=API.updateProfile(income);
                         break;
+                    case publish_post:
+                        answer=API.publish_post(income);
+                        break;
 
 
                 }
@@ -82,63 +85,6 @@ ClientHandler implements Runnable {
         }
 
     }
-
-
-//    private void login() {
-//        String username, password;
-//        username = input.next();
-//        password = input.next();
-//
-//        try {
-//            Account account = DataBase.getAccount(username, password);
-//            this.account = account;
-//            //DataBase.addOnlineAccount(account);
-//            account.setClientInputHandler(this);
-//            account.setClientOutputHandler(clientOutputHandler);
-//            clientOutputHandler.sendStringToClient("loggedIn");
-//        } catch (UserDoesntExistException e) {
-//            clientOutputHandler.sendStringToClient("noUserFound");
-//        } catch (PasswordsDoNotMatchException e) {
-//            clientOutputHandler.sendStringToClient("passwordIncorrect");
-//        }
-//    }
-//    private void changePassword() {
-//        String currentPass, newPass;
-//        currentPass = input.next();
-//        newPass = input.next();
-//        try {
-//            account.changePassword(currentPass,newPass);
-//            clientOutputHandler.sendStringToClient("passChanged");
-//        } catch (PasswordsDoNotMatchException e) {
-//            clientOutputHandler.sendStringToClient("passwordNotCorrect");
-//        }
-//    }
-
-//    private void block() {
-//        String accountUsername = input.next();
-//        try {
-//
-//            account.blockAccount(
-//                    DataBase.getAccountForOtherUses(accountUsername)
-//            );
-//            clientOutputHandler.sendStringToClient("blocked");
-//        } catch (NullPointerException e){
-//            clientOutputHandler.sendStringToClient("noAccountWithThisUsername");
-//        }
-//
-//    }
-//    private void logout() {
-//        if (account == null) {
-//            clientOutputHandler.sendStringToClient("notLoggedIn");
-//            return;
-//        }
-//
-//        DataBase.removeAccountFromOnlineAccounts(account);
-//        account.userLoggedOut();
-//        account = null;
-//        clientOutputHandler.sendStringToClient("loggedOut");
-//
-//    }
 }
 
 

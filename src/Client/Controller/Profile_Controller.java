@@ -57,7 +57,8 @@ public class Profile_Controller extends Controller implements Initializable {
         return true;
     }
 
-    public void edit_info(ActionEvent actionEvent) {
+    public void edit_info(ActionEvent actionEvent) throws IOException {
+        new PageLoader().load("edit");
 
     }
 

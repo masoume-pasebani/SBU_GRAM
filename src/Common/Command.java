@@ -10,4 +10,5 @@ public enum Command implements Serializable {
     block,
     username_unique,
     pass_recovery,
+    publish_post,
 }

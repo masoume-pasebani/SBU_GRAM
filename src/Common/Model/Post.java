@@ -28,6 +28,14 @@ public class Post implements Serializable {
 
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getWritername() {
         return writername;
     }
@@ -64,7 +72,6 @@ public class Post implements Serializable {
     public void decrement_likes(){
         this.likes--;
     }
-
 
     public void comment(Account commenter){
         Comment c = new Comment(commenter);
