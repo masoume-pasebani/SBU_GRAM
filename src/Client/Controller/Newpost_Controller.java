@@ -1,6 +1,9 @@
 package Client.Controller;
 
+import Client.ClientEXE;
+import Common.Model.Account;
 import Common.Model.PageLoader;
+import Common.Model.Post;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -17,6 +20,8 @@ public class Newpost_Controller {
     private TextArea desc;
     @FXML
     private Button add_image;
+    Post current_post=new Post();
+    Account account= ClientEXE.getProfile();
 
     public void add_image(ActionEvent actionEvent) {
     }
@@ -26,6 +31,12 @@ public class Newpost_Controller {
     }
 
     public void publish_post(MouseEvent mouseEvent) {
+
+        current_post.setTitle(post_title.getText());
+        current_post.setDesc(desc.getText());
+        current_post.setWritername(account.getUsername());
+
+
 
     }
 }

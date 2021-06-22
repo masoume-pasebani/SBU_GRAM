@@ -1,6 +1,7 @@
 package Common.Model;
 
 import Common.Help.Password;
+import javafx.scene.image.Image;
 
 import java.io.Serial;
 import java.io.Serializable;

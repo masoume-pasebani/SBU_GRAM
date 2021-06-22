@@ -1,9 +1,10 @@
 package Common.Help;
 
+import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Password {
+public class Password implements Serializable {
 
     public static String generateHash(String input) {
         StringBuilder hash = new StringBuilder();

@@ -1,8 +1,9 @@
 package Common.Help;
 
+import java.io.Serializable;
 import java.util.regex.Pattern;
 
-public class Validation {
+public class Validation implements Serializable {
     private static Pattern numberPattern = Pattern.compile("^\\d+$");
 
     public static boolean isNumeric(String input) {

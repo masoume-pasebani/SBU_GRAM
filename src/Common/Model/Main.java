@@ -4,7 +4,9 @@ import Client.Client;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+import java.io.Serializable;
+
+public class Main extends Application implements Serializable {
     @Override
     public void start(Stage stage) throws Exception{
 

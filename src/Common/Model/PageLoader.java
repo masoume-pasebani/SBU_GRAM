@@ -4,13 +4,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.nio.file.Paths;
 
 
-public class PageLoader {
+public class PageLoader implements Serializable {
     public static Stage stage;
     public static Scene scene;
 
@@ -23,6 +25,7 @@ public class PageLoader {
         stage.setTitle("SBU GRAM");
         stage.setWidth(WIDTH);
         stage.setHeight(HEIGHT);
+        stage.initStyle(StageStyle.DECORATED);
         stage.setResizable(false);
         stage.getIcons().add(new Image(Paths.get("images/logo.jpg").toUri().toString()));
     }

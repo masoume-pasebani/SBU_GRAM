@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Post implements Serializable {
     @Serial
     private static final long serialVersionUID = -369490364546270410L;
-    private Account writername;
+    private String writername;
     private String title;
     private String desc;
     private int likes;
@@ -16,7 +16,11 @@ public class Post implements Serializable {
     private String address;
     private ArrayList<Comment>comments=new ArrayList<>();
     private ArrayList<Account> commenters=new ArrayList<>();
-    public Post(String title, String desc, Account writername) {
+
+    public Post() {
+    }
+
+    public Post(String title, String desc, String writername) {
         this.title=title;
         this.desc=desc;
         this.writername = writername;
@@ -24,11 +28,11 @@ public class Post implements Serializable {
 
     }
 
-    public Account getWritername() {
+    public String getWritername() {
         return writername;
     }
 
-    public void setWritername(Account writername) {
+    public void setWritername(String writername) {
         this.writername = writername;
     }
 

@@ -100,35 +100,21 @@ public class login_Controller extends Controller{
                     public void run() {
                         label_for_pass.setText("Logging in...");
                         label_for_pass.setVisible(true);
+                        Account account= API.login(username,password);
+                        ClientEXE.setProfile(account);
+                        try {
+                            new PageLoader().load("timeline");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
-
-                Account account= API.login(username,password);
-                if(account==null){
-                    showInvalidLoginDialog();
-                    return;
-                }
-                ClientEXE.setProfile(account);
-                try {
-                    new PageLoader().load("timeline");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-//                try {
-//                    DB.oos.writeObject(new LoginCommand(username, password));
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
             }
         };
         return runnable;
     }
 
-    public void showInvalidLoginDialog() {
-        String title = "Error in login";
-        String contentText = "invalid username or password\nTry again or sign up";
-        this.makeAndShowInformationDialog( title, contentText );
-    }
+
 
     public void login(ActionEvent actionEvent) throws IOException {
         this.loginfunc();

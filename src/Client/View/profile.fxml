@@ -1,101 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="430.0" style="-fx-background-color: #090626;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller.Profile_Controller">
-   <children>
-      <ImageView fx:id="image" fitHeight="142.0" fitWidth="128.0" layoutX="33.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/default_user.png" />
-         </image></ImageView>
-      <Label layoutX="52.0" layoutY="247.0" text="Posts" textFill="#3745df">
-         <font>
-            <Font name="Sitka Small Bold Italic" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="315.0" layoutY="248.0" text="Following" textFill="#3745df">
-         <font>
-            <Font name="Sitka Small Bold Italic" size="15.0" />
-         </font></Label>
-      <Label layoutX="176.0" layoutY="248.0" text="Followers" textFill="#3745df">
-         <font>
-            <Font name="Sitka Small Bold Italic" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="187.0" layoutY="51.0" prefHeight="17.0" prefWidth="45.0" text="Name:" textFill="#3745df">
-         <font>
-            <Font name="Sitka Small Italic" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="182.0" layoutY="99.0" text="Username:" textFill="#3745df">
-         <font>
-            <Font name="Sitka Small Italic" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="182.0" layoutY="120.0" prefHeight="17.0" prefWidth="71.0" text="Birth year:" textFill="#3745df">
-         <font>
-            <Font name="Sitka Small Italic" size="12.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="menu" fitHeight="45.0" fitWidth="35.0" layoutX="376.0" layoutY="14.0" onMouseClicked="#menu" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/menu_104px.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="45.0" layoutX="197.0" layoutY="622.0" onMouseClicked="#timeline" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/home_104px.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="182.0" layoutY="75.0" prefHeight="17.0" prefWidth="71.0" text="LastName:" textFill="#3745df">
-         <font>
-            <Font name="Sitka Small Italic" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="name_l" layoutX="236.0" layoutY="51.0" prefHeight="17.0" prefWidth="158.0" textFill="#5df8fa">
-         <font>
-            <Font name="Arial Narrow" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="lastname_l" layoutX="258.0" layoutY="75.0" prefHeight="17.0" prefWidth="158.0" textFill="#5df8fa">
-         <font>
-            <Font name="Arial Narrow" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="user_l" layoutX="253.0" layoutY="98.0" prefHeight="17.0" prefWidth="158.0" textFill="#5df8fa" />
-      <Label fx:id="birth_l" layoutX="258.0" layoutY="120.0" prefHeight="17.0" prefWidth="158.0" textFill="#5df8fa">
-         <font>
-            <Font name="Arial Narrow" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="182.0" layoutY="144.0" prefHeight="17.0" prefWidth="97.0" text="Phone Number:" textFill="#3745df">
-         <font>
-            <Font name="Sitka Small Italic" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="phone_l" layoutX="287.0" layoutY="144.0" prefHeight="17.0" prefWidth="149.0" textFill="#5df8fa">
-         <font>
-            <Font name="Arial Narrow" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="posts" layoutX="52.0" layoutY="212.0" prefHeight="35.0" prefWidth="45.0" textFill="#5df8fa">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="followers" layoutX="187.0" layoutY="212.0" prefHeight="35.0" prefWidth="64.0" textFill="#5df8fa">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="following" layoutX="327.0" layoutY="212.0" prefHeight="35.0" prefWidth="55.0" textFill="#5df8fa">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-   </children>
-</Pane>
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="700.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller.Profile_Controller">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="409.0" prefWidth="429.0" style="-fx-background-color: #090626;">
+         <children>
+            <ImageView fx:id="image" fitHeight="124.0" fitWidth="119.0" layoutX="47.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/default_user.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="184.0" layoutY="92.0" prefHeight="14.0" prefWidth="71.0" text="Username:" textFill="#3745df">
+               <font>
+                  <Font name="Sitka Small Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="birth_l" layoutX="257.0" layoutY="109.0" prefHeight="17.0" prefWidth="158.0" textFill="#5df8fa">
+               <font>
+                  <Font name="Arial Narrow" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="181.0" layoutY="127.0" prefHeight="18.0" prefWidth="98.0" text="Phone Number:" textFill="#3745df">
+               <font>
+                  <Font name="Sitka Small Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="posts" layoutX="47.0" layoutY="192.0" prefHeight="35.0" prefWidth="45.0" textFill="#5df8fa">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="phone_l" layoutX="279.0" layoutY="127.0" prefHeight="17.0" prefWidth="149.0" textFill="#5df8fa">
+               <font>
+                  <Font name="Arial Narrow" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lastname_l" layoutX="256.0" layoutY="72.0" prefHeight="17.0" prefWidth="158.0" textFill="#5df8fa">
+               <font>
+                  <Font name="Arial Narrow" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="followers" layoutX="182.0" layoutY="192.0" prefHeight="35.0" prefWidth="64.0" textFill="#5df8fa">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="name_l" layoutX="230.0" layoutY="55.0" prefHeight="17.0" prefWidth="158.0" textFill="#5df8fa">
+               <font>
+                  <Font name="Arial Narrow" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="following" layoutX="335.0" layoutY="192.0" prefHeight="35.0" prefWidth="55.0" textFill="#5df8fa">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="181.0" layoutY="228.0" text="Followers" textFill="#3745df">
+               <font>
+                  <Font name="Sitka Small Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="324.0" layoutY="228.0" text="Following" textFill="#3745df">
+               <font>
+                  <Font name="Sitka Small Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="227.0" text="Posts" textFill="#3745df">
+               <font>
+                  <Font name="Sitka Small Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="184.0" layoutY="72.0" prefHeight="17.0" prefWidth="71.0" text="LastName:" textFill="#3745df">
+               <font>
+                  <Font name="Sitka Small Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="184.0" layoutY="109.0" prefHeight="17.0" prefWidth="71.0" text="Birth year:" textFill="#3745df">
+               <font>
+                  <Font name="Sitka Small Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="184.0" layoutY="57.0" prefHeight="14.0" prefWidth="46.0" text="Name:" textFill="#3745df">
+               <font>
+                  <Font name="Sitka Small Italic" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="edit_info" layoutX="167.0" layoutY="271.0" mnemonicParsing="false" onAction="#edit_info" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #9db7ff;" text="Edit Profile" textFill="#2a1789">
+               <font>
+                  <Font name="Sitka Small Bold Italic" size="13.0" />
+               </font>
+            </Button>
+            <Label fx:id="user_l" layoutX="256.0" layoutY="90.0" prefHeight="17.0" prefWidth="158.0" textFill="#5df8fa" />
+            <ImageView fitHeight="56.0" fitWidth="46.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#backtimeline" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/left_104px.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <ListView layoutX="-1.0" layoutY="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="346.0" prefWidth="430.0" />
+         </children>
+      </AnchorPane>
+  </items>
+</SplitPane>

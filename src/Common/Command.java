@@ -1,6 +1,8 @@
 package Common;
 
-public enum Command {
+import java.io.Serializable;
+
+public enum Command implements Serializable {
     login,
     logout,
     signup,

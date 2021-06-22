@@ -3,8 +3,10 @@ package Client.Controller;
 import Client.ClientEXE;
 import Common.Model.Account;
 import Common.Model.PageLoader;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -37,7 +39,7 @@ public class Profile_Controller extends Controller implements Initializable {
         followers.setText(String.valueOf(account.getFollowers()));
         following.setText(String.valueOf(account.getFollowing()));
         posts.setText(String.valueOf(account.getPost()));
-        image.setImage(image.getImage());
+        //image.setImage(Signup_Controller.chooseImage());
 
     }
     public boolean isValidPhone(){
@@ -54,12 +56,12 @@ public class Profile_Controller extends Controller implements Initializable {
         }
         return true;
     }
-    public void menu(MouseEvent mouseEvent) {
+
+    public void edit_info(ActionEvent actionEvent) {
+
     }
 
-    public void timeline(MouseEvent mouseEvent) throws IOException {
+    public void backtimeline(MouseEvent mouseEvent) throws IOException {
         new PageLoader().load("timeline");
     }
-
-
 }

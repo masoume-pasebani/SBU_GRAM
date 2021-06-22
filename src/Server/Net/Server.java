@@ -28,7 +28,7 @@ public class Server{
             serverSocket = new ServerSocket(port);
 
         } catch (IOException e) {
-            System.exit(12);
+            System.exit(0);
         }
 
         while ( isServerUp() ){
