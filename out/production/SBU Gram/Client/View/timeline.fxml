@@ -27,7 +27,7 @@
                   <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/plus_math_104px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="36.0" fitWidth="56.0" layoutX="350.0" layoutY="60.0" onMouseClicked="#go_to_profile" onMouseDragged="#go_to_profile" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="36.0" fitWidth="56.0" layoutX="350.0" layoutY="60.0" onMouseClicked="#gotopro" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/contacts_104px.png" />
                </image>
@@ -35,7 +35,7 @@
          </children></AnchorPane>
     <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="579.0" prefWidth="429.0" style="-fx-background-color: #09063;">
          <children>
-            <ListView layoutX="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="593.0" prefWidth="430.0" />
+            <ListView fx:id="listview" layoutX="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="593.0" prefWidth="430.0" />
          </children>
       </AnchorPane>
   </items>
