@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="430.0" style="-fx-background-color: #090626;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller.Change_Info_Controller">
+   <children>
+      <ImageView fitHeight="57.0" fitWidth="68.0" layoutX="27.0" layoutY="14.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/left_104px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="57.0" fitWidth="73.0" layoutX="328.0" layoutY="574.0" onMouseClicked="#done" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/checkmark_104px.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="name" layoutX="132.0" layoutY="212.0" prefHeight="26.0" prefWidth="178.0" promptText="Name" />
+      <PasswordField fx:id="confirm_pass" layoutX="132.0" layoutY="516.0" prefHeight="26.0" prefWidth="178.0" promptText="Confirm Password" />
+      <PasswordField fx:id="pass" layoutX="132.0" layoutY="454.0" prefHeight="26.0" prefWidth="178.0" promptText="Password" />
+      <TextField fx:id="phonenumber" layoutX="132.0" layoutY="337.0" prefHeight="26.0" prefWidth="178.0" promptText="Phone Number" />
+      <TextField fx:id="lastname" layoutX="132.0" layoutY="274.0" prefHeight="26.0" prefWidth="178.0" promptText="LastName" />
+      <TextField fx:id="birthyear" layoutX="132.0" layoutY="391.0" prefHeight="26.0" prefWidth="178.0" promptText="Birth Year" />
+      <ImageView fx:id="image" fitHeight="99.0" fitWidth="178.0" layoutX="132.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="162.0" layoutY="159.0" mnemonicParsing="false" onAction="#change_photo" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: #9db7ff;" text="Change photo" textFill="#2a1789">
+         <font>
+            <Font name="Sitka Small Bold Italic" size="13.0" />
+         </font>
+      </Button>
+      <Label fx:id="error" layoutX="115.0" layoutY="566.0" prefHeight="17.0" prefWidth="211.0" textFill="#d52929" />
+   </children>
+</Pane>
