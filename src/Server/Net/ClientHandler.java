@@ -55,6 +55,10 @@ ClientHandler implements Runnable {
                     case pass_recovery:
                         answer=API.pass_recovery(income);
                         break;
+                    case update_profile:
+                        answer=API.updateProfile(income);
+                        break;
+
 
                 }
                 oos.writeObject(answer);

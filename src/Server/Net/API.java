@@ -75,8 +75,29 @@ public class API {
     }
 
     public static Map<String,Object> pass_recovery(Map<String,Object> income){
-        String usernam;
-        return null;
+        String username=(String)income.get("username");
+        String new_pass=(String) income.get("new password");
+        Server.accountMap.get(username).setPassword(new_pass);
+        DataBase.getInstance().updateDataBase();
+        Map<String,Object> ans = new HashMap<>();
+        ans.put("command",Command.pass_recovery);
+        ans.put("username",username);
+        ans.put("new password",new_pass);
+        ans.put("answer",new Boolean(true));
+
+        System.out.println("an account with this username "+username+"changed her/his password at "+Time.getTime());
+        return ans;
+    }
+
+    public static Map<String,Object> updateProfile(Map<String,Object> income){
+        Account newProfile = (Account) income.get("profile");
+        String username = newProfile.getUsername();
+        Server.accountMap.replace(username,newProfile);
+        DataBase.getInstance().updateDataBase(); // save to local file
+        Map<String,Object> ans = new HashMap<>();
+        ans.put("command",Command.update_profile);
+        ans.put("answer",new Boolean(true));
+        return ans;
     }
 
 }

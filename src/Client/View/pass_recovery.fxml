@@ -67,6 +67,6 @@
          </image>
       </ImageView>
       <Label fx:id="pass_label" layoutX="135.0" layoutY="456.0" prefHeight="17.0" prefWidth="160.0" textFill="#e21717" />
-      <Label layoutX="135.0" layoutY="309.0" prefHeight="17.0" prefWidth="160.0" textFill="#ff2424" visible="false" />
+      <Label fx:id="p_label" layoutX="135.0" layoutY="309.0" prefHeight="17.0" prefWidth="160.0" textFill="#e21c1c" visible="false" />
    </children>
 </Pane>

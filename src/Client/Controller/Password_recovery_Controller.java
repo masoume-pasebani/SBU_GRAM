@@ -20,7 +20,7 @@ import java.io.IOException;
 public class Password_recovery_Controller {
 
     @FXML
-    private Label phone_label;
+    private Label p_label;
     @FXML
     private Label pass_label;
     @FXML
@@ -87,27 +87,25 @@ public class Password_recovery_Controller {
     public void check1(MouseEvent mouseEvent) {
 
         Account account=new Account(username_field.getText());
-        String phonenumber=phone_field.getText();
-        if(phonenumber.equals(account.getPhonenumber())){
+        if(phone_field.getText().equalsIgnoreCase(account.getPhonenumber())){
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-                    phone_label.setVisible(false);
+                    p_label.setVisible(false);
                     show_change_pass();
+                    check1.setVisible(false);
                     check2.setVisible(true);
                 }
             });
-
-            }
+        }
         else {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-                    phone_label.setText("Wrong PhoneNumber!!");
-                    phone_label.setVisible(true);
+                    p_label.setText("Wrong PhoneNumber!!");
+                    p_label.setVisible(true);
                 }
             });
-
         }
     }
 
