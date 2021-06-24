@@ -1,6 +1,7 @@
 package Server.Net;
 
 
+import Client.Controller.Signup_Controller;
 import Common.Model.Account;
 import Common.Model.Post;
 
@@ -14,11 +15,11 @@ import java.util.Vector;
 
 public class Server{
     public static final int port=2222;
+    public static Vector<Account> accounts=new Vector<>();
     private static boolean isServerUp = true;
 
     public static Map<String, Account> accountMap=null;
     public static Set<Post> postSet=null;
-    public static Vector<Account> accounts=new Vector<>();
 
     public static void main(String[] args) {
         DataBase.getInstance().initializeServer();
@@ -29,7 +30,7 @@ public class Server{
             serverSocket = new ServerSocket(port);
 
         } catch (IOException e) {
-            System.exit(0);
+            System.exit(1);
         }
 
         while ( isServerUp() ){

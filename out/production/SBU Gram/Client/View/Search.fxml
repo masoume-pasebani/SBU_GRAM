@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="430.0" style="-fx-background-color: #090626;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller.Search_Controller">
+   <children>
+      <TextField fx:id="search" layoutX="6.0" layoutY="109.0" prefHeight="50.0" prefWidth="418.0" promptText="Search" style="-fx-background-color: #88a3c6;">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="35.0" fitWidth="51.0" layoutX="374.0" layoutY="194.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/search_104px.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="error_label" layoutX="14.0" layoutY="203.0" prefHeight="17.0" prefWidth="268.0" textFill="#ed2121" visible="false" />
+      <ImageView fitHeight="50.0" fitWidth="69.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/left_104px.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

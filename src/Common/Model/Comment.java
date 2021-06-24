@@ -5,18 +5,18 @@ import java.util.Date;
 
 public class Comment implements Serializable {
     private String comment;
-    private Account publisher;
+    private String publisher;
     private String commentid;
     private Date date=new Date();
 
 
-    public Comment(String comment, Account publisher, String commentid) {
+    public Comment(String comment, String publisher, String commentid) {
         this.comment = comment;
         this.publisher = publisher;
         this.commentid = commentid;
     }
 
-    public Comment(Account commenter) {
+    public Comment(String commenter) {
         this.publisher=commenter;
     }
 
@@ -28,11 +28,11 @@ public class Comment implements Serializable {
         this.comment = comment;
     }
 
-    public Account getPublisher() {
+    public String getPublisher() {
         return publisher;
     }
 
-    public void setPublisher(Account publisher) {
+    public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
 

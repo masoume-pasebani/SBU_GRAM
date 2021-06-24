@@ -5,6 +5,7 @@ import Client.ClientEXE;
 import Common.Help.Validation;
 import Common.Model.Account;
 import Common.Model.PageLoader;
+import Server.Net.Server;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -20,11 +21,7 @@ import java.io.IOException;
 public class Password_recovery_Controller {
 
     @FXML
-    private Label p_label;
-    @FXML
     private Label pass_label;
-    @FXML
-    private ImageView check1;
     @FXML
     private ImageView check2;
     @FXML
@@ -38,8 +35,6 @@ public class Password_recovery_Controller {
     @FXML
     private ImageView check;
     @FXML
-    private Label question;
-    @FXML
     private TextField phone_field;
     @FXML
     private TextField username_field;
@@ -48,90 +43,77 @@ public class Password_recovery_Controller {
         new PageLoader().load("login");
     }
 
-    public void check(MouseEvent mouseEvent) {
-        if(UserNameExists(username_field.getText())){
-            error.setVisible(false);
-            show_phonenumber();
-            check.setVisible(false);
-            check1.setVisible(true);
-        }
-        else{
-            error.setText("There is no account with this username!");
-            error.setVisible(true);
-        }
-    }
 
-    public boolean UserNameExists(String username){
-          return API.IsUserNameExists(username);
-
-    }
-    public void show_phonenumber(){
-        TranslateTransition transition=new TranslateTransition(Duration.millis(1000),question);
+    public void show_change_pass() {
+        TranslateTransition transition = new TranslateTransition(Duration.millis(1000), pass_q);
         transition.setToX(-312);
         transition.play();
-        TranslateTransition transition1=new TranslateTransition(Duration.millis(1000),phone_field);
+        TranslateTransition transition1 = new TranslateTransition(Duration.millis(1000), newpass_field);
         transition1.setToX(316);
         transition1.play();
-    }
-    public void show_change_pass(){
-        TranslateTransition transition=new TranslateTransition(Duration.millis(1000),pass_q);
-        transition.setToX(-312);
-        transition.play();
-        TranslateTransition transition1=new TranslateTransition(Duration.millis(1000),newpass_field);
-        transition1.setToX(316);
-        transition1.play();
-        TranslateTransition transition2=new TranslateTransition(Duration.millis(1000),confirm_field);
+        TranslateTransition transition2 = new TranslateTransition(Duration.millis(1000), confirm_field);
         transition2.setToX(-312);
         transition2.play();
     }
 
-    public void check1(MouseEvent mouseEvent) {
+    public void check(MouseEvent mouseEvent) {
+        if(username_field.getText().isEmpty() || phone_field.getText().isEmpty()) {
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    error.setText("No username or Phone number provided!");
+                    error.setVisible(true);
+                }
+            });
+            return;
 
-        Account account=new Account(username_field.getText());
-        if(phone_field.getText().equalsIgnoreCase(account.getPhonenumber())){
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    p_label.setVisible(false);
-                    show_change_pass();
-                    check1.setVisible(false);
-                    check2.setVisible(true);
-                }
-            });
         }
-        else {
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    p_label.setText("Wrong PhoneNumber!!");
-                    p_label.setVisible(true);
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < Server.accounts.size(); i++) {
+                    if (Server.accounts.get(i).getUsername().equals(username_field.getText()) && Server.accounts.get(i).getPhonenumber().equals(phone_field.getText())) {
+                        error.setVisible(false);
+                        show_change_pass();
+                        check.setVisible(false);
+                        check2.setVisible(true);
+                    }
+                    else{
+                        error.setText("try again!");
+                        error.setVisible(true);
+                    }
                 }
-            });
-        }
+            }
+        });
+
     }
 
-    public void check2(MouseEvent mouseEvent) {
-        check1.setVisible(false);
-        if(newpass_field.getText().isEmpty() || confirm_field.getText().isEmpty()){
+    public void check2(MouseEvent mouseEvent) throws IOException {
+        check.setVisible(false);
+        show_change_pass();
+        if (newpass_field.getText().isEmpty() || confirm_field.getText().isEmpty()) {
             pass_label.setText("No password/confirmation provided!");
             pass_label.setVisible(true);
         }
-        if(!Validation.isAlphaNumeric(newpass_field.getText()) || newpass_field.getText().length()<8){
+        if (!Validation.isAlphaNumeric(newpass_field.getText()) || newpass_field.getText().length() < 8) {
             pass_label.setVisible(false);
             pass_label.setText("Invalid Password!");
             pass_label.setVisible(true);
         }
-        if(!confirm_field.getText().equals(newpass_field.getText())){
+        if (!confirm_field.getText().equals(newpass_field.getText())) {
             pass_label.setVisible(false);
             pass_label.setText("Passwords do not match!");
             pass_label.setVisible(true);
         }
-        if(Validation.isAlphaNumeric(newpass_field.getText()) && newpass_field.getText().length()>=8 && confirm_field.getText().equals(newpass_field.getText())){
+        if (Validation.isAlphaNumeric(newpass_field.getText()) && newpass_field.getText().length() >= 8 && confirm_field.getText().equals(newpass_field.getText())) {
             pass_label.setVisible(false);
             pass_label.setText("password changed successfully!");
             pass_label.setVisible(true);
-            ClientEXE.getProfile().setPassword( newpass_field.getText() );
-        }
+           // API.pass_recovery(username_field.getText(),newpass_field.getText());
+            new PageLoader().load("timeline");
 
+        }
     }
 }
+

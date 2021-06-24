@@ -3,8 +3,7 @@ package Common.Model;
 import Common.Help.Password;
 import javafx.scene.image.Image;
 
-import java.io.Serial;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -22,6 +21,7 @@ public class Account implements Serializable {
     private String lastname;
     private String phonenumber;
     private String birth;
+    private String address;
     private byte[] image;
 
     private ArrayList<Account> followers_list=new ArrayList<>();
@@ -33,15 +33,30 @@ public class Account implements Serializable {
     public Account(String username) {
         this.username = username;
     }
-    public Account(String username, String password, String name, String lastname, String phonenumber, String birth, byte[] image) {
+    public Account(String username, String password, String name, String lastname, String phonenumber, String birth,byte[] image) throws IOException {
         this.username = username;
         this.password = password;
         this.name=name;
         this.lastname=lastname;
         this.phonenumber=phonenumber;
+        this.birth=birth;
         this.image=image;
+        //this.address=address;
+//        File f=new File(address);
+//        FileInputStream fin=new FileInputStream(f);
+//        image= fin.readAllBytes();
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) throws IOException {
+        this.address = address;
+        File f=new File(this.address);
+        FileInputStream fin=new FileInputStream(f);
+        image=fin.readAllBytes();
+    }
 
     public byte[] getImage() {
         return image;
@@ -139,26 +154,7 @@ public class Account implements Serializable {
     public void setPost(int post) {
         this.post = post;
     }
-    //    public API getClientOutputHandler() {
-//        return clientOutputHandler;
-//    }
-//
-//    public void setClientOutputHandler(API clientOutputHandler) {
-//        this.clientOutputHandler = clientOutputHandler;
-//    }
-//
-//    public ClientHandler getClientInputHandler() {
-//        return clientInputHandler;
-//    }
-//
-//    public void setClientInputHandler(ClientHandler clientInputHandler) {
-//        this.clientInputHandler = clientInputHandler;
-//    }
-//    public void userLoggedOut(){
-//        clientInputHandler = null;
-//        clientOutputHandler = null;
-//
-//    }
+
 
     public ArrayList<Account> getFollowing_list() {
         return following_list;
@@ -203,6 +199,10 @@ public class Account implements Serializable {
         if(this.username.equals(username) && this.password.equals(password)) return this;
         return null;
     }
+//    public Account authenticate1(String username,String phonenumber){
+//        if(this.username.equals(username) && this.phonenumber.equals(phonenumber))return this;
+//        return null;
+//    }
 
 
 }

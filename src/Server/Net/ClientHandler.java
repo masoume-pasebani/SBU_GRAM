@@ -41,25 +41,34 @@ ClientHandler implements Runnable {
                 Command c = (Command) income.get("command");
                 switch (c) {
                     case username_unique:
-                      answer=API.isUserNameExists(income);
-                      break;
+                        answer = API.isUserNameExists(income);
+                        break;
                     case login:
-                        answer=API.login(income);
+                        answer = API.login(income);
                         break;
                     case signup:
-                        answer=API.signUp(income);
+                        answer = API.signUp(income);
                         break;
                     case logout:
-                        answer=API.logout(income);
+                        answer = API.logout(income);
                         break;
                     case pass_recovery:
-                        answer=API.pass_recovery(income);
+                        answer = API.update_pass(income);
                         break;
                     case update_profile:
-                        answer=API.updateProfile(income);
+                        answer = API.updateProfile(income);
                         break;
                     case publish_post:
-                        answer=API.publish_post(income);
+                        answer = API.publish_post(income);
+                        break;
+//                    case show_list_posts:
+//                        answer=API.show_list_post(income);
+//                      break;
+                    case like:
+                        answer=API.like(income);
+                        break;
+                    case dislike:
+                        answer=API.dislike(income);
                         break;
 
 

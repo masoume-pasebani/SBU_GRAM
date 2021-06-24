@@ -9,10 +9,10 @@ import java.io.Serializable;
 public class Main extends Application implements Serializable {
     @Override
     public void start(Stage stage) throws Exception{
-
+        Client.connectToServer();
         PageLoader.initStage(stage); //this is only needed when you start program
         //and need a new stage. all scenes will be loaded on this stage
-        Client.connectToServer();
+
         new PageLoader().load("login");
     }
 

@@ -21,6 +21,7 @@ import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serial;
@@ -233,7 +234,12 @@ public class Signup_Controller extends Controller {
                             pass_label.setVisible(false);
                             user_label.setVisible(false);
                             confirm_label.setVisible(false);
-                            Account createaccount= makeProfileFromPageContent();
+                            Account createaccount= null;
+                            try {
+                                createaccount = makeProfileFromPageContent();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             ClientEXE.setProfile(createaccount);
                             API.signUp(createaccount);
                             Server.accounts.add(createaccount);
@@ -268,7 +274,7 @@ public class Signup_Controller extends Controller {
 
     }
 
-    private Account makeProfileFromPageContent() {
+    private Account makeProfileFromPageContent() throws IOException {
         Account returnValue = new Account(username_field.getText(),pass_field.getText(),name_field.getText(),lastname_field.getText(),phonenumber_field.getText(),birth_field.getText(),image.getImage().getUrl().getBytes(StandardCharsets.UTF_8));
         returnValue.setUsername(username_field.getText());
         returnValue.setPassword(pass_field.getText() );
@@ -277,6 +283,7 @@ public class Signup_Controller extends Controller {
         returnValue.setBirth(birth_field.getText());
         returnValue.setPhonenumber(phonenumber_field.getText());
         returnValue.setImage( image.getImage().getUrl().getBytes(StandardCharsets.UTF_8) );
+
         return returnValue;
     }
 
