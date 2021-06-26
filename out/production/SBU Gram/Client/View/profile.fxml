@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="700.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller.Profile_Controller">
+<SplitPane dividerPositions="0.5, 0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="700.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller.Profile_Controller">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="409.0" prefWidth="429.0" style="-fx-background-color: #090626;">
          <children>
-            <ImageView fx:id="image" fitHeight="124.0" fitWidth="119.0" layoutX="47.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="image" fitHeight="124.0" fitWidth="119.0" layoutX="47.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/default_user.png" />
                </image>
@@ -105,10 +105,7 @@
                </image>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="542.0" prefWidth="429.0">
-         <children>
-            <ListView fx:id="listview" layoutX="-1.0" layoutY="-362.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100000.0" prefWidth="430.0" />
-         </children>
-      </AnchorPane>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="542.0" prefWidth="429.0" />
+      <ListView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="356.0" prefWidth="429.0" />
   </items>
 </SplitPane>

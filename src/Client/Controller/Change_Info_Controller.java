@@ -13,15 +13,23 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Change_Info_Controller extends Controller {
+    /**
+     * this is the controller of editing info
+     * @author Masoume Pasebani
+     * @version 1.0
+     * @since 2021-06-25
+     */
 
     @FXML
     private Label error;
@@ -43,8 +51,13 @@ public class Change_Info_Controller extends Controller {
     private PasswordField pass;
     @FXML
     private TextField lastname;
+    public String image1;
 
-
+    /**
+     * this method loads profile page
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void back(MouseEvent mouseEvent) throws IOException {
         new PageLoader().load("profile");
     }
@@ -52,7 +65,11 @@ public class Change_Info_Controller extends Controller {
     public void done(MouseEvent mouseEvent) {
         changeProfile();
     }
-        public void changeProfile(){
+
+    /**
+     * this method will checks fields and then will change the info
+     */
+    public void changeProfile(){
             if(name.getText().isEmpty() || lastname.getText().isEmpty() || phonenumber.getText().isEmpty() ||birthyear.getText().isEmpty() || pass.getText().isEmpty() || confirm_pass.getText().isEmpty()){
                 Platform.runLater(new Runnable() {
                     @Override
@@ -116,7 +133,19 @@ public class Change_Info_Controller extends Controller {
         }
     }
 
-    public void change_photo(ActionEvent actionEvent) {
+    /**
+     * the method of choosing image
+     * @param actionEvent
+     * @throws IOException
+     */
+    public void change_photo(ActionEvent actionEvent) throws IOException {
+        FileChooser fileChooser=new FileChooser();
+        File file=fileChooser.showOpenDialog(PageLoader.stage.getScene().getWindow());
+        image1=file.toString();
+        FileInputStream fin=new FileInputStream(file);
+        byte[] bytes=fin.readAllBytes();
+        Image image2=new Image(new ByteArrayInputStream(bytes));
+        image.setImage(image2);
     }
 
     public boolean isValidPhone(){

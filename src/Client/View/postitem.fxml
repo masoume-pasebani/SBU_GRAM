@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="430.0" style="-fx-background-color: #4a5974;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller.Postitem_Controller">
+<AnchorPane prefHeight="400.0" prefWidth="430.0" style="-fx-background-color: #4a5974;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="profile" fitHeight="104.0" fitWidth="112.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="profile" fitHeight="104.0" fitWidth="112.0" layoutX="14.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/default_user.png" />
          </image></ImageView>
-      <Label fx:id="user_label" layoutX="23.0" layoutY="130.0" prefHeight="18.0" prefWidth="122.0" text="username" textFill="#cec5ff">
+      <Label fx:id="user_label" layoutX="26.0" layoutY="148.0" prefHeight="18.0" prefWidth="134.0" text="username" textFill="#cec5ff">
          <font>
             <Font name="Sitka Small Bold Italic" size="14.0" />
          </font></Label>
@@ -26,7 +26,7 @@
             <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/like.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="repost_pic" fitHeight="53.0" fitWidth="70.0" layoutX="40.0" layoutY="333.0" onMouseClicked="#repost" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="repost_pic" fitHeight="53.0" fitWidth="70.0" layoutX="40.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/repost.png" />
          </image>
@@ -36,7 +36,7 @@
             <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/dislike.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="desc" layoutX="31.0" layoutY="216.0" prefHeight="53.0" prefWidth="366.0" />
+      <TextArea fx:id="desc" layoutX="31.0" layoutY="216.0" prefHeight="72.0" prefWidth="366.0" />
       <ImageView fx:id="image" fitHeight="144.0" fitWidth="154.0" layoutX="251.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:/C:/Users/fara/IdeaProjects/SBU%20GRAM/images/2103666.png" />

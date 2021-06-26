@@ -9,6 +9,12 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 
 public class Others_Profile_Controller {
+    /**
+     * this is the others profile controller
+     * @author Masoume Pasebani
+     * @version 1.0
+     * @since 2021-06-25
+     */
 
     public ImageView others_profile;
     public Label number_of_followers;

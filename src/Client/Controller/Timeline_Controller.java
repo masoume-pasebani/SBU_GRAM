@@ -7,56 +7,95 @@ import Common.Model.PageLoader;
 import Common.Model.Post;
 import Server.Net.Server;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import static Client.API.show_list_post;
+
 public class Timeline_Controller {
+    /**
+     * this controller shows the button of search,
+    * logout,profile,refresh and add post
+    * it also shows the list of posts
+    * @author Masoume Pasebani
+    * @version 1.0
+     * @since 2021-06.25
+     */
 
 
-    public static ListView<Post> listview;
-    public static List<Post> postList=new ArrayList<>();
 
-    public void initialize(){
-//        API.show_list_post(usernames());
-//        listview.setItems(FXCollections.observableArrayList(postList));
-//        listview.setCellFactory(listview ->new PostItem());
+    public ListView<Post> listview;
+    public static ArrayList<Post> postList=new ArrayList<>();
+    public  static AnchorPane root;
+
+    /**
+     * this method use for initialize the timeline page
+     */
+    public void initialize() {
+       // postList = show_list_post(ClientEXE.getProfile().getUsername());
+        //postList.addAll(ClientEXE.getProfile().getPosts());
+        listview.setItems(FXCollections.observableArrayList(postList));
+        listview.setCellFactory(listview -> new PostItem());
 
     }
 
+    /**
+     * this method loads the timeline again
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void refresh(MouseEvent mouseEvent) throws IOException {
         new PageLoader().load("timeline");
     }
 
+    /**
+     * this method loads the search page to find a user
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void search(MouseEvent mouseEvent) throws IOException {
         new PageLoader().load("search");
 
     }
 
+    /**
+     * this method loads the publish post page to add a post
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void add_post(MouseEvent mouseEvent) throws IOException {
         new PageLoader().load("publish post");
     }
 
+    /**
+     * this method loads the profile page
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void gotopro(MouseEvent mouseEvent) throws IOException {
         new PageLoader().load("profile");
     }
 
+    /**
+     * this method will loads the login page
+     * @throws IOException
+     */
     public void logout() throws IOException {
         API.logout();
         Client.Client.disconnectFromServer();
         ClientEXE.profile = null;
         new PageLoader().load("login");
     }
-    public String usernames(){
-        String allusenames ="";
-        for (Account a:Server.accounts) {
-            allusenames+=" "+a.getUsername();
-        }
-        return allusenames;
+
+    public void post(ActionEvent actionEvent) throws IOException {
+        new PageLoader().load("postitem");
     }
 }

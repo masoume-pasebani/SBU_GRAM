@@ -56,5 +56,6 @@ public class PageLoader implements Serializable {
         fxmlLoader.setController(controller);
         fxmlLoader.load();
     }
+
 }
 

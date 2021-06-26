@@ -4,12 +4,16 @@ import Common.Command;
 import Common.Model.Account;
 import Common.Model.Post;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class API {
-
+    /**
+     * this class is the API of the client side
+     * @param usernametocheck
+     * @return
+     */
     public static boolean IsUserNameExists(String usernametocheck){
         Map<String,Object> toSend = new HashMap<>();
         toSend.put("command", Command.username_unique);
@@ -74,14 +78,30 @@ public class API {
         return (Boolean) recieved.get("answer");
     }
 
-    public static List<Post> show_list_post(String postwritername){
+    public static Map<String,Object> get_Posts(Account account){
+        Map<String ,Object> tosend=new HashMap<>();
+        tosend.put("command",Command.get_posts);
+        tosend.put("post",ClientEXE.publisehd);
+        tosend.put("profile",account);
+        Map<String,Object>recieved =Client.serve(tosend);
+        return recieved;
+
+
+    }
+    public static ArrayList<Post> show_list_post(String postwritername){
         Map<String,Object> tosend=new HashMap<>();
         tosend.put("command",Command.show_list_posts);
         tosend.put("username",postwritername);
         Map<String,Object> recieved=Client.serve(tosend);
-        return (List<Post>) recieved.get("answer");
+        return (ArrayList<Post>) recieved.get("answer");
     }
+    public static ArrayList<Post> allPosts(Account account){
+        Map<String ,Object>tosend=new HashMap<>();
+        tosend=get_Posts(account);
+        tosend.put("command",Command.allPosts);
+       return (ArrayList<Post>) tosend.get("post");
 
+    }
     public static boolean like(String username,Post post){
         Map<String,Object> tosend=new HashMap<>();
         tosend.put("command",Command.like);
@@ -92,12 +112,13 @@ public class API {
     }
 
     public static boolean dislike(String username,Post post) {
-       Map<String, Object> tosend = new HashMap<>();
-       tosend.put("command", Command.like);
-       tosend.put("username", username);
-       tosend.put("post", post);
-       Map<String, Object> recieved = Client.serve(tosend);
-       return (Boolean) recieved.get("answer");
-   }
+        Map<String, Object> tosend = new HashMap<>();
+        tosend.put("command", Command.like);
+        tosend.put("username", username);
+        tosend.put("post", post);
+        Map<String, Object> recieved = Client.serve(tosend);
+        return (Boolean) recieved.get("answer");
+    }
 
 }
+

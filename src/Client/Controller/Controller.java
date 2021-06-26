@@ -5,6 +5,12 @@ import javafx.scene.control.*;
 
 
 public class Controller {
+    /**
+     * this is parent class of other controllers
+     * @author Masoume Pasebani
+     * @version 1.0
+     * @since 2021-06-25
+     */
 
 
     public void showFillRequiredFieldsDialog(){

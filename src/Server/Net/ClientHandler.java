@@ -61,9 +61,9 @@ ClientHandler implements Runnable {
                     case publish_post:
                         answer = API.publish_post(income);
                         break;
-//                    case show_list_posts:
-//                        answer=API.show_list_post(income);
-//                      break;
+                    case show_list_posts:
+                        answer=API.show_list_post(income);
+                        break;
                     case like:
                         answer=API.like(income);
                         break;
@@ -77,13 +77,13 @@ ClientHandler implements Runnable {
                 oos.flush();
 
             }catch(ClassCastException | ClassNotFoundException e){
-                }
-			catch(EOFException e){
-                    break;
-                }
-			catch(IOException e){
-                    break;
-                }
+            }
+            catch(EOFException e){
+                break;
+            }
+            catch(IOException e){
+                break;
+            }
         }
         try {
             ois.close();

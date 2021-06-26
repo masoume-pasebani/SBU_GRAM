@@ -28,6 +28,12 @@ import java.io.Serial;
 import java.nio.charset.StandardCharsets;
 
 public class Signup_Controller extends Controller {
+    /**
+     * the controller of signup page
+     * @author Masoume Pasebani
+     * @version 1.0
+     * @since 2021-06-25
+     */
 
     private final static String Profile_Picture="images/default_user.png";
     @FXML
@@ -67,6 +73,9 @@ public class Signup_Controller extends Controller {
     @FXML
     private Button signup_btn;
 
+    /**
+     * this method plays the fields
+     */
     public void initialize(){
         TranslateTransition transition=new TranslateTransition(Duration.millis(1000),add_photo);
         transition.setToX(-256);
@@ -129,6 +138,11 @@ public class Signup_Controller extends Controller {
 
     }
 
+    /**
+     * loads the login page
+     * @param actionEvent
+     * @throws IOException
+     */
     public void login(ActionEvent actionEvent) throws IOException {
         new PageLoader().load("login");
     }
@@ -139,6 +153,10 @@ public class Signup_Controller extends Controller {
         (new Thread(this.getSignUpHandler())).start();
     }
 
+    /**
+     * this method will check validation of all fields
+     * @return
+     */
     private Runnable getSignUpHandler() {
 
         Runnable runnable = new Runnable() {
@@ -305,9 +323,18 @@ public class Signup_Controller extends Controller {
         this.image.setImage( defaultImage );
     }
 
+    /**
+     * this method adds the image to users informations
+     * @param actionEvent
+     */
     public void add(ActionEvent actionEvent) {
         image.setImage(chooseImage());
     }
+
+    /**
+     * this method use for choosing an image
+     * @return
+     */
     public static Image chooseImage() {
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog( PageLoader.stage.getScene().getWindow() );

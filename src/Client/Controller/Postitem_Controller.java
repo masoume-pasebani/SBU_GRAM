@@ -4,6 +4,7 @@ import Client.API;
 import Client.ClientEXE;
 import Common.Model.PageLoader;
 import Common.Model.Post;
+import Server.Net.Server;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,33 +20,41 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Postitem_Controller {
+
+    /**
+     * this is the postitem controller
+     * @author Masoume Pasebani
+     * @version 1.0
+     * @since 2021-06-25
+     */
     public Label time_of_the_post;
     public Label number_of_likes;
     public ImageView image;
     public TextArea desc;
-    @FXML
-    private Label user_label;
-    @FXML
-    private Label title_label;
-    @FXML
-    private Button see_more;
-    @FXML
-    private ImageView profile;
-    @FXML
-    private ImageView dislike_pic;
-    @FXML
-    private ImageView like_pic;
-    @FXML
-    private ImageView repost_pic;
-    AnchorPane root;
-    Post post;
+    public Label user_label;
+    public Label title_label;
+    public ImageView profile;
+    public ImageView dislike_pic;
+    public ImageView like_pic;
+    public ImageView repost_pic;
+    public AnchorPane root;
+    public Post post;
 
+    /**
+     * it loads postitem
+     * @param post
+     * @throws IOException
+     */
     public Postitem_Controller(Post post) throws IOException {
         new PageLoader().load("postitem",this);
         this.post = post;
     }
 
 
+    /**
+     * if you double click on mouse ypu would like the post
+     * @param mouseEvent
+     */
     public void like(MouseEvent mouseEvent) {
         if(mouseEvent.getClickCount()%2==0){
             like_pic.setVisible(true);
@@ -59,19 +68,22 @@ public class Postitem_Controller {
 
     }
 
-
+    /**
+     * this method will initialize posts details
+     * @return
+     */
     public AnchorPane init() {
-        Post post= ClientEXE.getPost();
-        user_label.setText(post.getWritername());
-        title_label.setText(post.getTitle());
-        desc.setText(post.getDesc());
-        time_of_the_post.setText(post.getTimeString());
-        number_of_likes.setText(String.valueOf(post.getLikes()));
-        Image postimage=new Image(new ByteArrayInputStream(post.getImage()));
-        image.setImage(postimage);
-        Image profile_image=new Image(new ByteArrayInputStream(post.getPublisher().getImage()));
-        profile.setImage(profile_image);
-        return root;
+
+            user_label.setText(post.getWritername());
+            title_label.setText(post.getTitle());
+            desc.setText(post.getDesc());
+            time_of_the_post.setText(post.getTimeString());
+            number_of_likes.setText(String.valueOf(post.getLikes()));
+            //Image postimage=new Image(new ByteArrayInputStream(post.getImage()));
+            //image.setImage(postimage);
+            //Image profile_image=new Image(new ByteArrayInputStream(post.getPublisher().getImage()));
+            //profile.setImage(profile_image);
+            return root;
 
     }
 }

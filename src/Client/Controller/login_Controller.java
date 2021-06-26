@@ -19,7 +19,12 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 
 public class login_Controller extends Controller{
-
+    /**
+     * the controller of login page
+     * @author Masoume Pasebani
+     * @version 1.0
+     * @since 2021-06-25
+     */
 
     @FXML
     private Label label_for_pass;
@@ -37,6 +42,10 @@ public class login_Controller extends Controller{
         (new Thread(this.LoginHandler())).start();
     }
 
+    /**
+     * this method checks the validation of fields
+     * @return
+     */
     private Runnable LoginHandler() {
 
         Runnable runnable = new Runnable() {
@@ -124,7 +133,10 @@ public class login_Controller extends Controller{
         new PageLoader().load("signup");
     }
 
-
+    /**
+     * this method will make password visible
+     * @param actionEvent
+     */
     public void show_pass(ActionEvent actionEvent) {
 
         if (!show_password.isVisible()) {

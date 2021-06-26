@@ -19,6 +19,12 @@ import javafx.util.Duration;
 import java.io.IOException;
 
 public class Password_recovery_Controller {
+    /**
+     * this is the password recovery controller
+     * @author Masoume Pasebani
+     * @version 1.0
+     * @since 2021-06-25
+     */
 
     @FXML
     private Label pass_label;
@@ -39,11 +45,18 @@ public class Password_recovery_Controller {
     @FXML
     private TextField username_field;
 
+    /**
+     * this will load login page
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void back_to_login(MouseEvent mouseEvent) throws IOException {
         new PageLoader().load("login");
     }
 
-
+    /**
+     * it shows pass field and confirm field after username and phone number validation
+     */
     public void show_change_pass() {
         TranslateTransition transition = new TranslateTransition(Duration.millis(1000), pass_q);
         transition.setToX(-312);
@@ -56,6 +69,10 @@ public class Password_recovery_Controller {
         transition2.play();
     }
 
+    /**
+     * it checks the username and phone number
+     * @param mouseEvent
+     */
     public void check(MouseEvent mouseEvent) {
         if(username_field.getText().isEmpty() || phone_field.getText().isEmpty()) {
             Platform.runLater(new Runnable() {
@@ -89,6 +106,11 @@ public class Password_recovery_Controller {
 
     }
 
+    /**
+     * this method use to change password
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void check2(MouseEvent mouseEvent) throws IOException {
         check.setVisible(false);
         show_change_pass();

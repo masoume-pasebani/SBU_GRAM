@@ -38,9 +38,9 @@
                </image>
             </ImageView>
          </children></AnchorPane>
-    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="579.0" prefWidth="429.0" style="-fx-background-color: #09063;">
+    <AnchorPane fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="579.0" prefWidth="429.0" style="-fx-background-color: #09063;">
          <children>
-            <ListView fx:id="listview" layoutX="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="593.0" prefWidth="430.0" />
+            <ListView fx:id="listview" layoutX="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="9000000.0" prefWidth="430.0" />
          </children>
       </AnchorPane>
   </items>

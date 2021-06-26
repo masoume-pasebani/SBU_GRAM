@@ -20,6 +20,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.ResourceBundle;
 
 public class Profile_Controller extends Controller implements Initializable {
+    /**
+     * this class is the controller of profile page
+     * @author Masoume Pasebani
+     * @versin 1.0
+     * @since 2021-06-25
+     */
     @FXML
     private Label birth_l;
     @FXML
@@ -40,9 +46,14 @@ public class Profile_Controller extends Controller implements Initializable {
     @FXML
     private Label following;
     @FXML
-    private ListView listview;
+    public static ListView listview;
 
 
+    /**
+     * this method initialize the profile page by getting account info
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Account account= ClientEXE.getProfile();
@@ -56,8 +67,8 @@ public class Profile_Controller extends Controller implements Initializable {
         posts.setText(String.valueOf(account.getPost()));
         Image image1=new Image(new ByteArrayInputStream(account.getImage()));
         image.setImage(image1);
-        listview.setItems(FXCollections.observableArrayList(account.getPosts()));
-        listview.setCellFactory(listView -> new PostItem());
+//        listview.setItems(FXCollections.observableArrayList(account.getPosts()));
+//        listview.setCellFactory(listView -> new PostItem());
 
     }
     public boolean isValidPhone(){
@@ -75,11 +86,21 @@ public class Profile_Controller extends Controller implements Initializable {
         return true;
     }
 
+    /**
+     * it loads edit page
+     * @param actionEvent
+     * @throws IOException
+     */
     public void edit_info(ActionEvent actionEvent) throws IOException {
         new PageLoader().load("edit");
 
     }
 
+    /**
+     * it loads timeline page
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void backtimeline(MouseEvent mouseEvent) throws IOException {
         new PageLoader().load("timeline");
     }

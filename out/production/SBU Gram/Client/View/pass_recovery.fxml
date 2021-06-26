@@ -51,7 +51,7 @@
             <Font name="Sitka Small Italic" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="pass_label" layoutX="135.0" layoutY="456.0" prefHeight="17.0" prefWidth="160.0" textFill="#e21717" />
+      <Label fx:id="pass_label" layoutX="135.0" layoutY="456.0" prefHeight="17.0" prefWidth="234.0" textFill="#e21717" />
       <Label fx:id="p_label" layoutX="135.0" layoutY="309.0" prefHeight="17.0" prefWidth="160.0" textFill="#e21c1c" visible="false" />
       <ImageView fx:id="check" fitHeight="46.0" fitWidth="62.0" layoutX="332.0" layoutY="589.0" onMouseClicked="#check" pickOnBounds="true" preserveRatio="true">
          <image>
