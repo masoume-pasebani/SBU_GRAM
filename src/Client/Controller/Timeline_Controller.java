@@ -45,7 +45,7 @@ public class Timeline_Controller {
         Set<Post>posts=API.get_Posts();
         List<Post> postList= posts.stream().filter(a->a.getWritername().equals(ClientEXE.getProfile())).sorted((x,y)->(int)(x.getCreatedTime()-y.getCreatedTime())).collect(Collectors.toList());
         listview.setItems(FXCollections.observableArrayList(postList));
-        listview.setCellFactory(listview -> new PostItem());
+        listview.setCellFactory(postListView -> new PostItem());
 
 
     }

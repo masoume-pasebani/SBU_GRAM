@@ -43,6 +43,9 @@
          </image>
       </ImageView>
       <Label fx:id="number_of_likes" layoutX="380.0" layoutY="340.0" prefHeight="38.0" prefWidth="42.0" textFill="#321cd7" />
-      <Label fx:id="time_of_the_post" layoutX="144.0" layoutY="370.0" prefHeight="18.0" prefWidth="143.0" textFill="#1315bd" />
+      <Label fx:id="time_of_the_post" layoutX="125.0" layoutY="370.0" prefHeight="18.0" prefWidth="162.0" text="time" textFill="#cec5ff">
+         <font>
+            <Font name="Sitka Small Bold Italic" size="15.0" />
+         </font></Label>
    </children>
 </AnchorPane>

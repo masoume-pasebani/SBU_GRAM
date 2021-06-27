@@ -137,11 +137,13 @@ public class API {
 
             Map<String, Object> ans = new HashMap<>();
             Post post = (Post) income.get("post");
+            Account account=(Account)income.get("profile");
+            String username=account.getUsername();
             //Server.postSet.add(post);
             DataBase.getInstance().updateDataBase();
             ans.put("command", Command.publish_post);
             ans.put("answer", new Boolean(true));
-            System.out.println("an account published a post at " + Time.getTime());
+            System.out.println("an  with this username<<"+username+">> published a post at " + Time.getTime());
 
             return ans;
         }catch (Exception exception){

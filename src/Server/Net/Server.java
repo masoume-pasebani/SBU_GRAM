@@ -20,11 +20,12 @@ public class Server{
     public static final int port=2222;
     public static Vector<Account> accounts=new Vector<>();
     private static boolean isServerUp = true;
-
+    static Post p1=new Post();
     public static Map<String, Account> accountMap=null;
-    public static Set<Post> postSet=null;
+    public static Set<Post> postSet=new HashSet<>();
 
     public static void main(String[] args) {
+
         DataBase.getInstance().initializeServer();
 
         ServerSocket serverSocket = null;
