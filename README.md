@@ -1,2 +1,3 @@
 # SBU_GRAM
-it's a simple version of Instagram.
+it's a veryyyy simple version of Instagram.
+
