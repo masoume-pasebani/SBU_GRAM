@@ -1,12 +1,19 @@
 package Common.Model;
 
 import Common.Time;
+import Server.Net.Server;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Post implements Serializable {
+public class Post implements Serializable,Comparable<Post>{
+    /**
+     * the class of post that sets posts details and return them
+     * @author Masoume Pasebani
+     * @version 1.0
+     * @since 2021-06-2
+     */
     @Serial
     private static final long serialVersionUID = -369490364546270410L;
     private String writername;
@@ -24,6 +31,10 @@ public class Post implements Serializable {
     private Comment comment;
     byte[] image;
     private Account publisher;
+
+    /**
+     * an empty constructor just for create a post
+     */
     public Post() {
     }
 
@@ -35,17 +46,37 @@ public class Post implements Serializable {
         this.image = image;
     }
 
+    /**
+     * the constructor of the class that initialize some details
+     * @param title
+     * @param desc
+     * @param writername
+     * @param address
+     * @throws IOException
+     */
     public Post(String title, String desc, String writername, String address) throws IOException {
         this.title = title;
         this.desc = desc;
         this.writername = writername;
         this.address=address;
         likes = 0;
-        createdTime = Time.getMilli();
-        timeString = Time.getTime();
+        this.createdTime = Time.getMilli();
+        this.timeString = Time.getTime();
         File f=new File(address);
         FileInputStream fin=new FileInputStream(f);
         image=fin.readAllBytes();
+    }
+
+    /**
+     * the other methods are just getter and setter
+     * @return
+     */
+    public Long getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(Long createdTime) {
+        this.createdTime = createdTime;
     }
 
     public int getLikes() {
@@ -175,5 +206,11 @@ public class Post implements Serializable {
     }
     public long getTimeLong() {
         return createdTime;
+    }
+
+
+    @Override
+    public int compareTo(Post o) {
+        return (int)(this.createdTime-o.createdTime);
     }
 }

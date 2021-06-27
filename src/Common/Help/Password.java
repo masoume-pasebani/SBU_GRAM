@@ -5,6 +5,14 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Password implements Serializable {
+    /**
+     * the class of valid passwords
+     * honestly im not the author of this class
+     * @version 1.0
+     * @since 2021
+     * @param input
+     * @return
+     */
 
     public static String generateHash(String input) {
         StringBuilder hash = new StringBuilder();

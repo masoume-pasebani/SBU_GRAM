@@ -11,6 +11,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class API {
+    /**
+     * the class of API in sever side
+     * @author Masoume Pasebani
+     * @version 1.0
+     * @since 2021
+     */
 
 
     public static Map<String, Object> login(Map<String, Object> income) {
@@ -127,45 +133,46 @@ public class API {
     }
 
     public static Map<String, Object> publish_post(Map<String, Object> income) {
-        Post post = (Post) income.get("post");
-        String username = (String) income.get("username");
-        Account account = new Account(username);
-        //Server.postSet.add(post);
-        Server.accountMap.get(username).setPost(account.getPost() + 1);
-        DataBase.getInstance().updateDataBase();
-        Map<String, Object> ans = new HashMap<>();
-        ans.put("command", Command.publish_post);
-        ans.put("username", username);
-        ans.put("post", post);
-        ans.put("answer", new Boolean(true));
-        System.out.println("an account with this username<<" + username + ">>published a post at " + Time.getTime());
+        try {
 
-        return ans;
+            Map<String, Object> ans = new HashMap<>();
+            Post post = (Post) income.get("post");
+            //Server.postSet.add(post);
+            DataBase.getInstance().updateDataBase();
+            ans.put("command", Command.publish_post);
+            ans.put("answer", new Boolean(true));
+            System.out.println("an account published a post at " + Time.getTime());
+
+            return ans;
+        }catch (Exception exception){
+            exception.printStackTrace();
+        }
+        return null;
 
     }
 
-    public static Map<String,Object> getallPosts(Map<String,Object>income){
-        Account account=(Account) income.get("profile");
+    public static Map<String,Object> get_Posts(Map<String,Object>income){
         Map<String,Object> ans=new HashMap<>();
         ans.put("command",Command.get_posts);
-        ArrayList<Post>postArrayList=new ArrayList<>(Server.postSet);
-        ans.put("post",postArrayList);
+        ans.put("answer",Server.postSet);
+//        Set<Post>postArrayList=new HashSet<>(Server.postSet);
+//        ans.put("post",postArrayList);
         return ans;
 
     }
-    public static Map<String, Object> show_list_post(Map<String, Object> income) {
-        Account account = Server.accountMap
-                .get(String.valueOf(income.get("username")).trim());
-        ArrayList<Post> posts=account.getPosts();
-        Map<String, Object> ans = new HashMap<>();
-        ans.put("command", Command.show_list_posts);
-        posts = (ArrayList<Post>) Server.postSet.stream()
-                .sorted((x,y)->-1*(Long.compare(x.getTimeLong(),y.getTimeLong()))).collect(Collectors.toList());
-        ans.put("postlist", posts);
-        ans.put("answer", new Boolean(true));
-        DataBase.getInstance().updateDataBase();
-        return ans;
-    }
+//    public static Map<String, Object> show_list_post(Map<String, Object> income) {
+//        Account account = Server.accountMap
+//                .get(String.valueOf(income.get("username")).trim());
+//        ArrayList<Post> posts=account.getPosts();
+//        Map<String, Object> ans = new HashMap<>();
+//        ans.put("command", Command.show_list_posts);
+//        posts = (ArrayList<Post>) Server.postSet.stream()
+//                .sorted((x,y)->-1*(Long.compare(x.getTimeLong(),y.getTimeLong()))).collect(Collectors.toList());
+//        ans.put("postlist", posts);
+//        ans.put("answer", new Boolean(true));
+//        DataBase.getInstance().updateDataBase();
+//        return ans;
+//    }
 
     public static Map<String, Object> like(Map<String, Object> income) {
         Post post = (Post) income.get("post");
@@ -203,6 +210,7 @@ public class API {
         ans.put("command",Command.search);
         ans.put("username",account.getUsername());
         ans.put("answer",new Boolean(true));
+        System.out.println("someone searched for <<"+account.getUsername()+">> at "+Time.getTime());
         return ans;
     }
 

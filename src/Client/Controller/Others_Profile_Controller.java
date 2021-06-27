@@ -29,6 +29,8 @@ public class Others_Profile_Controller {
         new PageLoader().load("Search");
     }
     public void initialize(){
+        username_l.setText(Postitem_Controller.user_label.getText());
+        others_profile.setImage(Postitem_Controller.image.getImage());
 
     }
 }

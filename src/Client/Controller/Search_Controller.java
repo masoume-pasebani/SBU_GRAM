@@ -54,6 +54,7 @@ public class Search_Controller {
                     error_label.setVisible(false);
                     Account account=new Account(search.getText());
                     list.add(account);
+                    API.find_account(account);
                     listview.setItems(FXCollections.observableArrayList(list));
                     listview.setCellFactory(listView -> new AccountItem());
                 }

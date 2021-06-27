@@ -9,6 +9,12 @@ import java.util.Objects;
 
 public class Account implements Serializable {
 
+    /**
+     * the class of every user info
+     * @author Masoume Pasebani
+     * @version 1.0
+     * @since 2021
+     */
     @Serial
     private static final long serialVersionUID = 161207394374102042L;
     private int followers = 0;
@@ -30,9 +36,25 @@ public class Account implements Serializable {
     private ArrayList<Post> posts = new ArrayList<>();
 
 
+    /**
+     * first constructor of class that initialize username and we can make an account just with username
+     * @param username
+     */
     public Account(String username) {
         this.username = username;
     }
+
+    /**
+     * the second constructor of class that initialize other features
+     * @param username
+     * @param password
+     * @param name
+     * @param lastname
+     * @param phonenumber
+     * @param birth
+     * @param image
+     * @throws IOException
+     */
     public Account(String username, String password, String name, String lastname, String phonenumber, String birth,byte[] image) throws IOException {
         this.username = username;
         this.password = password;
@@ -47,6 +69,10 @@ public class Account implements Serializable {
 //        image= fin.readAllBytes();
     }
 
+    /**
+     * the other methods are just getter and setter
+     * @return
+     */
     public String getAddress() {
         return address;
     }

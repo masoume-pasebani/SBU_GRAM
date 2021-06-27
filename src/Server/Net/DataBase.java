@@ -8,7 +8,11 @@ import java.io.*;
 import java.util.concurrent.*;
 
 public class DataBase {
-    ;
+    /**
+     * this class will write all inputs on profilesdb and postsdb and save them
+     * @author Roozbe Sharifnasab
+     * @since 2019
+     */
     public static final String PROFILES_FILE = "C:\\Users\\fara\\IdeaProjects\\SBU GRAM\\src\\DB\\ProfilesDB.txt";
     public static final String POSTS_FILE =  "C:\\Users\\fara\\IdeaProjects\\SBU GRAM\\src\\DB\\PostsDB.txt";
 
@@ -61,7 +65,8 @@ public class DataBase {
 
             fout = new FileOutputStream(POSTS_FILE);
             oos = new ObjectOutputStream(fout);
-            oos.writeObject(Server.postSet);
+            oos.writeObject(Server.postSet);//writing posts
+            oos.flush();
             oos.close();
             fout.close();
 

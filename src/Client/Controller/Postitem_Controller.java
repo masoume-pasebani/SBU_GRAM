@@ -27,19 +27,19 @@ public class Postitem_Controller {
      * @version 1.0
      * @since 2021-06-25
      */
-    public Label time_of_the_post;
-    public Label number_of_likes;
-    public ImageView image;
-    public TextArea desc;
-    public Label user_label;
+    public  Label time_of_the_post;
+    public  Label number_of_likes;
+    public static ImageView image;
+    public  TextArea desc;
+    public static Label user_label;
     public Label title_label;
-    public ImageView profile;
-    public ImageView dislike_pic;
+    public  ImageView profile;
+    public  ImageView dislike_pic;
     public ImageView like_pic;
-    public ImageView repost_pic;
+    public  ImageView repost_pic;
     public AnchorPane root;
     public Post post;
-
+    public int likes=0;
     /**
      * it loads postitem
      * @param post
@@ -59,9 +59,15 @@ public class Postitem_Controller {
         if(mouseEvent.getClickCount()%2==0){
             like_pic.setVisible(true);
             API.like(String.valueOf(post.getLikers()),post);
+            likes++;
+            number_of_likes.setText(String.valueOf(likes));
         }
-        else
+        else {
             like_pic.setVisible(false);
+            API.dislike(String.valueOf(post.getLikers()), post);
+            likes--;
+            number_of_likes.setText(String.valueOf(likes));
+        }
     }
 
     public void repost(MouseEvent mouseEvent) {
@@ -79,10 +85,10 @@ public class Postitem_Controller {
             desc.setText(post.getDesc());
             time_of_the_post.setText(post.getTimeString());
             number_of_likes.setText(String.valueOf(post.getLikes()));
-            //Image postimage=new Image(new ByteArrayInputStream(post.getImage()));
-            //image.setImage(postimage);
-            //Image profile_image=new Image(new ByteArrayInputStream(post.getPublisher().getImage()));
-            //profile.setImage(profile_image);
+            Image postimage=new Image(new ByteArrayInputStream(post.getImage()));
+            image.setImage(postimage);
+            Image profile_image=new Image(new ByteArrayInputStream(post.getPublisher().getImage()));
+            profile.setImage(profile_image);
             return root;
 
     }

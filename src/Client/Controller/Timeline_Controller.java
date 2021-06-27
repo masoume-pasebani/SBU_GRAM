@@ -1,6 +1,7 @@
 package Client.Controller;
 
 import Client.API;
+import Client.Client;
 import Client.ClientEXE;
 import Common.Model.Account;
 import Common.Model.PageLoader;
@@ -16,9 +17,11 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.Vector;
+import java.util.stream.Collectors;
 
-import static Client.API.show_list_post;
+
 
 public class Timeline_Controller {
     /**
@@ -33,17 +36,17 @@ public class Timeline_Controller {
 
 
     public ListView<Post> listview;
-    public static ArrayList<Post> postList=new ArrayList<>();
     public  static AnchorPane root;
 
     /**
      * this method use for initialize the timeline page
      */
     public void initialize() {
-       // postList = show_list_post(ClientEXE.getProfile().getUsername());
-        //postList.addAll(ClientEXE.getProfile().getPosts());
+        Set<Post>posts=API.get_Posts();
+        List<Post> postList= posts.stream().filter(a->a.getWritername().equals(ClientEXE.getProfile())).sorted((x,y)->(int)(x.getCreatedTime()-y.getCreatedTime())).collect(Collectors.toList());
         listview.setItems(FXCollections.observableArrayList(postList));
         listview.setCellFactory(listview -> new PostItem());
+
 
     }
 
@@ -90,7 +93,7 @@ public class Timeline_Controller {
      */
     public void logout() throws IOException {
         API.logout();
-        Client.Client.disconnectFromServer();
+        Client.disconnectFromServer();
         ClientEXE.profile = null;
         new PageLoader().load("login");
     }

@@ -41,7 +41,7 @@ public class Newpost_Controller {
     private TextArea desc;
     @FXML
     private Button add_image;
-    Post current_post=new Post();
+
     public String image;
     Account account= ClientEXE.getProfile();
 
@@ -80,16 +80,15 @@ public class Newpost_Controller {
             image_label.setVisible(true);
         }
         else {
+            Post current_post=new Post();
             image_label.setVisible(false);
             current_post.setTitle(post_title.getText());
             current_post.setDesc(desc.getText());
             current_post.setWritername(account.getUsername());
-            //Server.postSet.add(current_post);
-            ClientEXE.getProfile().getPosts().add(current_post);
-            API.publish_post(account.getUsername(),current_post);
-//            Profile_Controller.listview.setItems(FXCollections.observableArrayList(Timeline_Controller.postList));
-//            Profile_Controller.listview.setCellFactory(postListView -> new PostItem());
-            new PageLoader().load("timeline");
+            if(API.publish_post(current_post)) {
+
+                new PageLoader().load("timeline");
+            }
 
         }
 

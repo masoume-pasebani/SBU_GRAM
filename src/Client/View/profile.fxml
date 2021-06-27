@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5, 0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="700.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller.Profile_Controller">
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="700.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller.Profile_Controller">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="409.0" prefWidth="429.0" style="-fx-background-color: #090626;">
          <children>
@@ -105,7 +105,10 @@
                </image>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="542.0" prefWidth="429.0" />
-      <ListView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="356.0" prefWidth="429.0" />
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="17.0" prefWidth="429.0">
+         <children>
+            <ListView layoutY="-2.0" prefHeight="397.0" prefWidth="430.0" />
+         </children>
+      </AnchorPane>
   </items>
 </SplitPane>

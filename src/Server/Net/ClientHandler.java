@@ -13,12 +13,21 @@ import java.util.Map;
 
 public class
 ClientHandler implements Runnable {
+    /**
+     * the class of clienthandler in server side
+     * @author Masoume Pasebani
+     * @version 1.0
+     * @since 2021
+     */
     private Socket socket;
     private ObjectInputStream ois;
     private ObjectOutputStream oos;
     public Boolean clienton=true;
 
-
+    /**
+     * the constructor of class that initialize socket
+     * @param socket
+     */
     public ClientHandler(Socket socket) {
         try {
             this.socket = socket;
@@ -61,14 +70,17 @@ ClientHandler implements Runnable {
                     case publish_post:
                         answer = API.publish_post(income);
                         break;
-                    case show_list_posts:
-                        answer=API.show_list_post(income);
+                    case get_posts:
+                        answer=API.get_Posts(income);
                         break;
                     case like:
                         answer=API.like(income);
                         break;
                     case dislike:
                         answer=API.dislike(income);
+                        break;
+                    case search:
+                        answer=API.find_account(income);
                         break;
 
 

@@ -3,10 +3,12 @@ package Client;
 import Common.Command;
 import Common.Model.Account;
 import Common.Model.Post;
+import Server.Net.Server;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class API {
     /**
@@ -65,42 +67,55 @@ public class API {
         toSend.put("command", Command.logout);
         Map<String,Object> recieved = Client.serve(toSend);
         if ( recieved.get("answer") == null ) return false;
+        System.out.println("this account logged out.");
         return (Boolean) recieved.get("answer");
     }
 
 
-    public static boolean publish_post(String username,Post post){
+    public static boolean publish_post(Post post){
         Map<String,Object> tosend =new HashMap<>();
         tosend.put("command",Command.publish_post);
-        tosend.put("username",username);
-        tosend.put("new post",post);
+        //tosend.put("username",username);
+        tosend.put("post",post);
         Map<String,Object> recieved =Client.serve(tosend);
-        return (Boolean) recieved.get("answer");
+        if(recieved==null){
+            return false;
+        }
+        return (boolean) recieved.get("answer");
     }
 
-    public static Map<String,Object> get_Posts(Account account){
+    public static Set<Post> get_Posts(){
         Map<String ,Object> tosend=new HashMap<>();
         tosend.put("command",Command.get_posts);
-        tosend.put("post",ClientEXE.publisehd);
-        tosend.put("profile",account);
         Map<String,Object>recieved =Client.serve(tosend);
-        return recieved;
+        return (Set<Post>) recieved.get("answer");
 
 
     }
-    public static ArrayList<Post> show_list_post(String postwritername){
-        Map<String,Object> tosend=new HashMap<>();
-        tosend.put("command",Command.show_list_posts);
-        tosend.put("username",postwritername);
-        Map<String,Object> recieved=Client.serve(tosend);
-        return (ArrayList<Post>) recieved.get("answer");
-    }
+//    public static ArrayList<Post> show_list_post(Account account){
+//        Map<String,Object> tosend=new HashMap<>();
+//        tosend.put("command",Command.show_list_posts);
+//        tosend.put("username",account.getUsername());
+//        tosend.put("post",account.getPosts());
+//        Map<String,Object> recieved=Client.serve(tosend);
+//        return (ArrayList<Post>) recieved.get("post");
+//    }
+
+
     public static ArrayList<Post> allPosts(Account account){
         Map<String ,Object>tosend=new HashMap<>();
-        tosend=get_Posts(account);
+        tosend= (Map<String, Object>) get_Posts();
         tosend.put("command",Command.allPosts);
        return (ArrayList<Post>) tosend.get("post");
 
+    }
+    public static Account find_account(Account account){
+        Map<String,Object>tosend=new HashMap<>();
+        tosend.put("command",Command.search);
+        tosend.put("username",account.getUsername());
+        if(account==null)
+            return null;
+        return account;
     }
     public static boolean like(String username,Post post){
         Map<String,Object> tosend=new HashMap<>();

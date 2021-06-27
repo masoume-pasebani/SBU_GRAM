@@ -3,6 +3,9 @@ package Common;
 import java.io.Serializable;
 
 public enum Command implements Serializable {
+    /**
+     * these are some commands that user will do
+     */
     login,
     logout,
     signup,

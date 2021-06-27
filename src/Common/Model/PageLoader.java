@@ -13,6 +13,12 @@ import java.nio.file.Paths;
 
 
 public class PageLoader implements Serializable {
+    /**
+     * the class of loading new pages
+     * @author Niloufar
+     * @version 1.0
+     * @since 2021
+     */
     public static Stage stage;
     public static Scene scene;
 

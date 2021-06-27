@@ -7,6 +7,11 @@ import javafx.stage.Stage;
 import java.io.Serializable;
 
 public class Main extends Application implements Serializable {
+    /**
+     * the main class of client side
+     * @param stage
+     * @throws Exception
+     */
     @Override
     public void start(Stage stage) throws Exception{
         Client.connectToServer();

@@ -8,12 +8,15 @@ import Common.Model.Post;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.Vector;
+import java.util.*;
 
 public class Server{
+    /**
+     * the main class of server side
+     * @author Roozbe Sharifnasab
+     * @version ?
+     * @since 2019
+     */
     public static final int port=2222;
     public static Vector<Account> accounts=new Vector<>();
     private static boolean isServerUp = true;
